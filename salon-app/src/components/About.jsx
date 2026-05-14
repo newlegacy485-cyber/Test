@@ -2,9 +2,9 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 const pillars = [
-  { icon: '💰', title: 'Affordable Pricing', desc: 'Great quality at prices that make sense' },
-  { icon: '🎨', title: 'Color Specialists', desc: 'Vivid, balayage, highlights & more' },
-  { icon: '🤝', title: 'We Listen', desc: 'Every service starts with a real consultation' },
+  { icon: '🌿', title: 'Paul Mitchell Focus Salon', desc: 'Official Paul Mitchell partner salon' },
+  { icon: '🎨', title: 'Color Specialists', desc: 'Vivid, balayage, highlights & corrections' },
+  { icon: '🚶', title: 'Walk-Ins Welcome', desc: 'No appointment? Come on in!' },
 ]
 
 function FadeIn({ children, delay = 0, direction = 'up', className = '' }) {
@@ -85,21 +85,22 @@ export default function About() {
           </FadeIn>
           <FadeIn delay={0.2}>
             <h2 className="section-heading">
-              A hidden gem in<br /><em>downtown Easton.</em>
+              Inside the Grand Eastonian<br /><em>Hotel, downtown Easton.</em>
             </h2>
           </FadeIn>
           <FadeIn delay={0.3}>
             <p className="about__para">
-              Suddenly Samantha is a relaxed, welcoming salon tucked in the heart
-              of downtown Easton, PA. We're known for our friendly atmosphere,
-              affordable prices, and stylists who genuinely listen to what you want.
+              Welcome to Suddenly Samantha! We are a <strong>Paul Mitchell Focus Salon</strong>{' '}
+              located inside the Grand Eastonian Hotel in the heart of downtown Easton.
+              We're known for our relaxed atmosphere, affordable prices, and stylists who
+              genuinely care about every client.
             </p>
           </FadeIn>
           <FadeIn delay={0.4}>
             <p className="about__para">
-              From a quick men's cut to a full vivid color transformation, our team
-              brings skill and passion to every chair. We use trusted brands like
-              Paul Mitchell and Malibu to keep your hair healthy and looking its best.
+              We specialize in vivid color, alternative cuts, color corrections, perms,
+              and treatments. Walk-ins are welcome, and we're a mobile business —
+              we can service clients everywhere in the United States.
             </p>
           </FadeIn>
 
@@ -173,6 +174,7 @@ export default function About() {
           box-shadow: 0 12px 36px rgba(26,22,18,0.2);
           transition: box-shadow 0.3s;
         }
+        .about__para strong { color: var(--charcoal); font-weight: 600; }
         .about-stat__num {
           font-family: var(--font-display); font-size: 2.4rem;
           font-weight: 600; display: block;

@@ -28,7 +28,7 @@ export default function Hero() {
         <motion.div className="hero__text" style={{ y: textY, opacity }}>
           <motion.div className="hero__eyebrow" {...fadeUp(0.2)}>
             <span className="eyebrow-line" />
-            Easton, PA · By Appointment
+            Grand Eastonian Hotel · Easton, PA · Walk-ins Welcome
             <span className="eyebrow-line" />
           </motion.div>
 
@@ -63,9 +63,9 @@ export default function Hero() {
 
           <motion.div className="hero__stats" {...fadeUp(0.8)}>
             {[
-              { num: '★ 4.9', label: 'Rated on Vagaro' },
-              { num: '100%', label: 'By Appointment' },
-              { num: 'Easton', label: 'PA · Downtown' },
+              { num: '★ 5.0', label: 'Vagaro Rating' },
+              { num: '6', label: 'Talented Stylists' },
+              { num: 'PM', label: 'Paul Mitchell Focus Salon' },
             ].map((s, i) => (
               <div key={i} className="hero__stat-group">
                 {i > 0 && <div className="stat-sep" />}

@@ -2,10 +2,13 @@ import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const hours = [
-  { day: 'Monday – Wednesday', time: '12:00 PM – 8:00 PM' },
-  { day: 'Thursday – Friday',  time: '10:00 AM – 8:00 PM' },
-  { day: 'Saturday',           time: '9:00 AM – 4:00 PM' },
-  { day: 'Sunday',             time: 'Closed' },
+  { day: 'Sunday',    time: '9:00 AM – 4:00 PM' },
+  { day: 'Monday',    time: '10:00 AM – 6:00 PM' },
+  { day: 'Tuesday',   time: '12:00 PM – 8:00 PM' },
+  { day: 'Wednesday', time: '12:00 PM – 8:00 PM' },
+  { day: 'Thursday',  time: '9:00 AM – 8:00 PM' },
+  { day: 'Friday',    time: '9:00 AM – 8:00 PM' },
+  { day: 'Saturday',  time: '9:00 AM – 7:00 PM' },
 ]
 
 export default function Booking() {
@@ -61,21 +64,22 @@ export default function Booking() {
 
           <div className="booking-contacts">
             {[
-              { icon: '📞', text: '(484) 347-0093', href: 'tel:+14843470093' },
-              { icon: '📍', text: '140 Northampton St, Ste E, Easton, PA 18042', href: 'https://maps.google.com/?q=140+Northampton+St+Easton+PA' },
-              { icon: '📸', text: '@suddenlysamantha', href: 'https://instagram.com/suddenlysamantha' },
+              { icon: '📞', text: '(610) 559-8590', href: 'tel:+16105598590' },
+              { icon: '📍', text: '140 Northampton Street, Easton, PA 18042\n(Inside the Grand Eastonian Hotel)', href: 'https://maps.google.com/?q=140+Northampton+St+Easton+PA' },
+              { icon: '💳', text: 'Visa · MC · Discover · AmEx · Debit · Cash', href: null },
+              { icon: '🚶', text: 'Walk-ins welcome · Mobile services available', href: null },
             ].map(c => (
               <motion.a
                 key={c.icon}
-                href={c.href}
-                target={c.href.startsWith('http') ? '_blank' : undefined}
+                href={c.href || undefined}
+                target={c.href && c.href.startsWith('http') ? '_blank' : undefined}
                 rel="noopener noreferrer"
-                className="booking-contact"
+                className={`booking-contact${!c.href ? ' booking-contact--plain' : ''}`}
                 whileHover={{ x: 4 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <span className="booking-contact__icon">{c.icon}</span>
-                <span>{c.text}</span>
+                <span style={{ whiteSpace: 'pre-line' }}>{c.text}</span>
               </motion.a>
             ))}
           </div>
@@ -232,6 +236,7 @@ export default function Booking() {
           cursor: pointer; transition: color 0.2s;
         }
         .booking-contact:hover { color: var(--charcoal); }
+        .booking-contact--plain { cursor: default; pointer-events: none; }
         .booking-contact__icon {
           width: 34px; height: 34px; border-radius: var(--radius-sm);
           background: var(--cream-2); border: 1px solid var(--cream-3);

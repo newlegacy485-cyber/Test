@@ -50,9 +50,9 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Visit</h4>
             <ul>
-              <li><span>140 Northampton St, Ste E</span></li>
-              <li><span>Easton, PA 18042</span></li>
-              <li><a href="tel:+14843470093">(484) 347-0093</a></li>
+              <li><span>140 Northampton St</span></li>
+              <li><span>Grand Eastonian Hotel, Easton PA</span></li>
+              <li><a href="tel:+16105598590">(610) 559-8590</a></li>
               <li><a href="https://www.vagaro.com/suddenlysamantha" target="_blank" rel="noopener noreferrer">Book on Vagaro</a></li>
             </ul>
           </div>
@@ -62,7 +62,7 @@ export default function Footer() {
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">
           <span>© 2026 Suddenly Samantha · Easton, PA</span>
-          <span>By appointment only · (484) 347-0093</span>
+          <span>Walk-ins welcome · (610) 559-8590</span>
         </div>
       </div>
 

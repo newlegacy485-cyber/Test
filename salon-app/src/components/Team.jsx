@@ -3,29 +3,53 @@ import { motion, useInView } from 'framer-motion'
 
 const team = [
   {
-    initials: 'S', name: 'Samantha',
-    role: 'Owner & Lead Stylist',
-    bio: 'The heart and soul of the salon. Samantha specializes in vivid color, cuts, and perms — and has built a loyal following in downtown Easton through skill and genuine care for every client.',
-    specialties: ['Vivid Color', 'Perms', 'Cuts'],
+    initials: 'SF', name: 'Stephen Flowers',
+    role: 'Stylist',
+    bio: 'A skilled stylist bringing creativity and precision to every appointment at Suddenly Samantha.',
+    specialties: ['Cuts', 'Styling'],
     bg: 'linear-gradient(145deg,#b5838d44,#6d687522)',
     accentBg: 'linear-gradient(135deg,#b5838d,#6d6875)',
-    badge: 'Owner',
   },
   {
-    initials: 'B', name: 'Becky',
-    role: 'Senior Stylist',
-    bio: 'Known for her exceptional attention to detail and ability to listen to what clients actually want. Becky transforms damaged hair into healthy, beautiful styles.',
-    specialties: ['Color', 'Treatments', 'Styling'],
+    initials: 'AL', name: 'Aja Livezey',
+    role: 'Stylist · ★ 5.0',
+    bio: 'Top-rated stylist with a passion for transformative hair. Aja\'s clients love her attention to detail and the results she delivers every time.',
+    specialties: ['Color', 'Cuts', 'Styling'],
     bg: 'linear-gradient(145deg,#d4a37344,#a4755122)',
     accentBg: 'linear-gradient(135deg,#d4a373,#a47551)',
+    badge: '★ 5.0',
   },
   {
-    initials: 'SV', name: 'Steve',
-    role: 'Stylist & Barber',
-    bio: "Bringing precision to every cut, Steve handles men's grooming, beard trims, and classic barbering alongside full salon services.",
-    specialties: ["Men's Cuts", 'Beard Trims', 'Barbering'],
+    initials: 'MR', name: 'Moon Ramirez',
+    role: 'Stylist',
+    bio: 'Bringing a fresh perspective and technical skill to every style. Moon is passionate about making clients feel their best.',
+    specialties: ['Cuts', 'Color', 'Styling'],
+    bg: 'linear-gradient(145deg,#ccd5ae44,#a2b87e22)',
+    accentBg: 'linear-gradient(135deg,#a2b87e,#ccd5ae)',
+  },
+  {
+    initials: 'AW', name: 'Ann Wiemer',
+    role: 'Master Stylist',
+    bio: '30 years of experience working in New York, LA, and Pennsylvania. Ann brings decades of expertise and a warm, personable touch to every client.',
+    specialties: ['Cuts', 'Color', 'Treatments'],
     bg: 'linear-gradient(145deg,#8ecae644,#219ebc22)',
     accentBg: 'linear-gradient(135deg,#8ecae6,#219ebc)',
+  },
+  {
+    initials: 'CK', name: 'Cain Killowett',
+    role: 'Vivid Color & SFX Artist',
+    bio: 'A Trans and Queer stylist from Bucks County specializing in vivid colors, alternative haircuts, and SFX Makeup. Also a costume designer and short film maker. Loves clowns, Halloween, cats, and David Lynch.',
+    specialties: ['Vivid Color', 'Alternative Cuts', 'SFX Makeup'],
+    bg: 'linear-gradient(145deg,#a78bfa44,#7c3aed22)',
+    accentBg: 'linear-gradient(135deg,#a78bfa,#7c3aed)',
+  },
+  {
+    initials: 'JM', name: 'Jordan M',
+    role: 'Color Specialist',
+    bio: 'Focused on color corrections and vivid hair colors. Jordan turns hair goals into reality with a specialist\'s eye for tone, depth, and vibrancy.',
+    specialties: ['Color Corrections', 'Vivid Colors'],
+    bg: 'linear-gradient(145deg,#f9a8d444,#ec489922)',
+    accentBg: 'linear-gradient(135deg,#f9a8d4,#ec4899)',
   },
 ]
 
@@ -106,6 +130,7 @@ export default function Team() {
         .team-section { background: var(--cream-2); }
         .team-grid {
           display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+          grid-template-rows: auto;
         }
         .team-card {
           background: #fff; border: 1px solid var(--cream-3);
