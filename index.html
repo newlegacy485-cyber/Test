@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luminary — Digital Experiences</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <span class="logo-mark">✦</span>
+        Luminary
+      </a>
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-toggle__icon">☀</span>
+      </button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <ul>
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#work" class="mobile-link">Work</a></li>
+        <li><a href="#services" class="mobile-link">Services</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero__bg">
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+      <div class="hero__orb hero__orb--3"></div>
+      <div class="hero__grid"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__badge animate-fade-up">
+        <span class="badge-dot"></span>
+        Now taking new projects for 2026
+      </div>
+      <h1 class="hero__headline animate-fade-up">
+        We craft digital<br />
+        <span class="gradient-text">experiences</span><br />
+        that inspire.
+      </h1>
+      <p class="hero__sub animate-fade-up">
+        A creative studio building beautiful, fast, and purposeful websites
+        and applications for ambitious brands worldwide.
+      </p>
+      <div class="hero__cta animate-fade-up">
+        <a href="#work" class="btn btn--primary">View Our Work</a>
+        <a href="#contact" class="btn btn--ghost">Get in Touch</a>
+      </div>
+      <div class="hero__stats animate-fade-up">
+        <div class="stat">
+          <span class="stat__number" data-target="120">0</span><span>+</span>
+          <span class="stat__label">Projects Delivered</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__number" data-target="98">0</span><span>%</span>
+          <span class="stat__label">Client Satisfaction</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__number" data-target="8">0</span><span>+</span>
+          <span class="stat__label">Years of Experience</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span>Design</span><span class="dot">✦</span>
+      <span>Development</span><span class="dot">✦</span>
+      <span>Branding</span><span class="dot">✦</span>
+      <span>Motion</span><span class="dot">✦</span>
+      <span>Strategy</span><span class="dot">✦</span>
+      <span>Design</span><span class="dot">✦</span>
+      <span>Development</span><span class="dot">✦</span>
+      <span>Branding</span><span class="dot">✦</span>
+      <span>Motion</span><span class="dot">✦</span>
+      <span>Strategy</span><span class="dot">✦</span>
+      <span>Design</span><span class="dot">✦</span>
+      <span>Development</span><span class="dot">✦</span>
+      <span>Branding</span><span class="dot">✦</span>
+      <span>Motion</span><span class="dot">✦</span>
+      <span>Strategy</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__visual">
+          <div class="about__image-wrap">
+            <div class="about__image-blob"></div>
+            <div class="about__image-card about__image-card--1">
+              <div class="mini-card">
+                <span class="mini-card__icon">🎨</span>
+                <span>Award-winning design</span>
+              </div>
+            </div>
+            <div class="about__image-card about__image-card--2">
+              <div class="mini-card">
+                <span class="mini-card__icon">⚡</span>
+                <span>Blazing fast delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about__text">
+          <div class="section-label">Who We Are</div>
+          <h2 class="section-heading">
+            A team obsessed with
+            <em>beautiful craft</em>
+          </h2>
+          <p>
+            We are a small, mighty studio of designers, developers, and
+            strategists who believe that great digital work is born from deep
+            curiosity and meticulous attention to detail.
+          </p>
+          <p>
+            Founded in 2018, we've partnered with startups, Fortune 500s, and
+            everything in between — helping each one tell their story in a way
+            that resonates and converts.
+          </p>
+          <ul class="about__values">
+            <li>
+              <span class="check">✓</span>
+              Design-first thinking on every project
+            </li>
+            <li>
+              <span class="check">✓</span>
+              Transparent communication, always
+            </li>
+            <li>
+              <span class="check">✓</span>
+              Performance and accessibility as standard
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn--primary">Work With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-heading">Services built for <em>impact</em></h2>
+        <p class="section-sub">
+          From brand identity to full-stack development, we cover every layer
+          of the digital stack.
+        </p>
+      </div>
+      <div class="services__grid">
+        <div class="service-card" data-delay="0">
+          <div class="service-card__icon">✦</div>
+          <h3>UI/UX Design</h3>
+          <p>
+            Intuitive interfaces rooted in user research. We design with
+            empathy and precision to create experiences people love.
+          </p>
+          <span class="service-card__arrow">→</span>
+        </div>
+        <div class="service-card" data-delay="100">
+          <div class="service-card__icon">⚡</div>
+          <h3>Web Development</h3>
+          <p>
+            Pixel-perfect, performant websites built with modern frameworks.
+            Clean code, fast load times, SEO-ready out of the box.
+          </p>
+          <span class="service-card__arrow">→</span>
+        </div>
+        <div class="service-card" data-delay="200">
+          <div class="service-card__icon">◉</div>
+          <h3>Brand Identity</h3>
+          <p>
+            Logos, color systems, typography, and guidelines that give your
+            brand a cohesive, memorable visual language.
+          </p>
+          <span class="service-card__arrow">→</span>
+        </div>
+        <div class="service-card" data-delay="300">
+          <div class="service-card__icon">▶</div>
+          <h3>Motion & Animation</h3>
+          <p>
+            Scroll-triggered animations, micro-interactions, and cinematic
+            motion design that brings interfaces to life.
+          </p>
+          <span class="service-card__arrow">→</span>
+        </div>
+        <div class="service-card" data-delay="400">
+          <div class="service-card__icon">◈</div>
+          <h3>Product Strategy</h3>
+          <p>
+            Workshop facilitation, roadmapping, and product thinking to
+            align your vision with technical execution.
+          </p>
+          <span class="service-card__arrow">→</span>
+        </div>
+        <div class="service-card" data-delay="500">
+          <div class="service-card__icon">❖</div>
+          <h3>E-Commerce</h3>
+          <p>
+            High-converting online stores with seamless checkout flows,
+            optimized for revenue and long-term growth.
+          </p>
+          <span class="service-card__arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section class="work section" id="work">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Selected Work</div>
+        <h2 class="section-heading">Projects we're <em>proud of</em></h2>
+      </div>
+      <div class="work__grid">
+        <article class="project-card project-card--large">
+          <div class="project-card__media" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="project-card__overlay">
+              <div class="project-mockup project-mockup--browser">
+                <div class="mockup-bar"><span></span><span></span><span></span></div>
+                <div class="mockup-body mockup-body--1"></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-card__info">
+            <div class="project-tags">
+              <span>Brand Identity</span>
+              <span>Web Design</span>
+              <span>Development</span>
+            </div>
+            <h3>Aether Finance</h3>
+            <p>A complete digital rebrand and web platform for a next-gen fintech startup.</p>
+            <a href="#" class="project-link">View Case Study →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__media" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <div class="project-card__overlay">
+              <div class="project-mockup project-mockup--mobile">
+                <div class="mockup-notch"></div>
+                <div class="mockup-screen mockup-screen--2"></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-card__info">
+            <div class="project-tags">
+              <span>Mobile App</span>
+              <span>UI/UX</span>
+            </div>
+            <h3>Bloom Health</h3>
+            <p>Wellness app design for 500k+ users.</p>
+            <a href="#" class="project-link">View Case Study →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__media" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <div class="project-card__overlay">
+              <div class="project-mockup project-mockup--tablet">
+                <div class="mockup-screen mockup-screen--3"></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-card__info">
+            <div class="project-tags">
+              <span>E-Commerce</span>
+              <span>Shopify</span>
+            </div>
+            <h3>Nordvik Studio</h3>
+            <p>Premium Scandinavian furniture store.</p>
+            <a href="#" class="project-link">View Case Study →</a>
+          </div>
+        </article>
+
+        <article class="project-card project-card--large project-card--right">
+          <div class="project-card__media" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+            <div class="project-card__overlay">
+              <div class="project-mockup project-mockup--browser">
+                <div class="mockup-bar"><span></span><span></span><span></span></div>
+                <div class="mockup-body mockup-body--4"></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-card__info">
+            <div class="project-tags">
+              <span>SaaS</span>
+              <span>Dashboard</span>
+              <span>Motion</span>
+            </div>
+            <h3>Orbit Analytics</h3>
+            <p>A data analytics SaaS platform with rich data visualizations and an intuitive admin dashboard.</p>
+            <a href="#" class="project-link">View Case Study →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Kind Words</div>
+        <h2 class="section-heading">What clients <em>say</em></h2>
+      </div>
+      <div class="testimonials__track" id="testimonialTrack">
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <blockquote>
+            "Luminary didn't just build us a website — they transformed how we
+            present ourselves to the world. The results exceeded every expectation."
+          </blockquote>
+          <div class="testimonial-card__author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">SL</div>
+            <div>
+              <strong>Sarah Lindqvist</strong>
+              <span>CEO, Aether Finance</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <blockquote>
+            "The attention to detail and the level of craft that went into our
+            app was incredible. Our user engagement jumped 40% after launch."
+          </blockquote>
+          <div class="testimonial-card__author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">MR</div>
+            <div>
+              <strong>Marcus Reid</strong>
+              <span>CPO, Bloom Health</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <blockquote>
+            "Working with Luminary felt effortless. They understood our vision
+            immediately and delivered something even better than we imagined."
+          </blockquote>
+          <div class="testimonial-card__author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">AN</div>
+            <div>
+              <strong>Anna Nakamura</strong>
+              <span>Founder, Nordvik Studio</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <blockquote>
+            "From strategy to final pixel, the team was exceptional. Our
+            platform conversion rate doubled within three months of launch."
+          </blockquote>
+          <div class="testimonial-card__author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">JT</div>
+            <div>
+              <strong>James Torres</strong>
+              <span>CTO, Orbit Analytics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonials__controls">
+        <button class="t-btn" id="tPrev" aria-label="Previous">←</button>
+        <div class="t-dots" id="tDots"></div>
+        <button class="t-btn" id="tNext" aria-label="Next">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band">
+    <div class="cta-band__orb cta-band__orb--1"></div>
+    <div class="cta-band__orb cta-band__orb--2"></div>
+    <div class="container">
+      <div class="cta-band__inner">
+        <h2>Ready to build something <span class="gradient-text">remarkable?</span></h2>
+        <p>Let's turn your idea into a digital experience your audience won't forget.</p>
+        <a href="#contact" class="btn btn--primary btn--lg">Start a Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="contact__inner">
+        <div class="contact__info">
+          <div class="section-label">Get In Touch</div>
+          <h2 class="section-heading">Let's talk about <em>your project</em></h2>
+          <p>
+            Have a project in mind? Fill out the form and we'll get back to
+            you within one business day.
+          </p>
+          <div class="contact__details">
+            <div class="contact__detail">
+              <span class="contact__detail-icon">✉</span>
+              <span>hello@luminary.studio</span>
+            </div>
+            <div class="contact__detail">
+              <span class="contact__detail-icon">◎</span>
+              <span>San Francisco · New York · London</span>
+            </div>
+            <div class="contact__detail">
+              <span class="contact__detail-icon">◷</span>
+              <span>Mon–Fri, 9am–6pm (PST)</span>
+            </div>
+          </div>
+          <div class="contact__social">
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">Dribbble</a>
+            <a href="#" class="social-link">GitHub</a>
+          </div>
+        </div>
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Alex Johnson" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="alex@company.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">What are you looking for?</label>
+            <select id="subject" name="subject">
+              <option value="" disabled selected>Select a service…</option>
+              <option>UI/UX Design</option>
+              <option>Web Development</option>
+              <option>Brand Identity</option>
+              <option>Motion & Animation</option>
+              <option>Product Strategy</option>
+              <option>E-Commerce</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell us about your project</label>
+            <textarea id="message" name="message" rows="5" placeholder="Describe your project, goals, timeline, and budget…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-icon">→</span>
+          </button>
+          <div class="form-success" id="formSuccess">
+            <span>✓</span> Message sent! We'll be in touch soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="#" class="nav__logo">
+            <span class="logo-mark">✦</span>
+            Luminary
+          </a>
+          <p>Crafting digital experiences<br />that inspire and convert.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#work">Work</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">UI/UX Design</a></li>
+              <li><a href="#">Development</a></li>
+              <li><a href="#">Branding</a></li>
+              <li><a href="#">Motion</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">LinkedIn</a></li>
+              <li><a href="#">Dribbble</a></li>
+              <li><a href="#">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Luminary Studio. All rights reserved.</span>
+        <span>Made with ✦ and care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
