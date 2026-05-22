@@ -271,6 +271,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav__links a:hover { color: var(--text); }
 .nav__links a:hover::after { width: 100%; }
 
+.nav-admin-link {
+  background: rgba(124,58,237,0.12) !important;
+  border: 1px solid rgba(124,58,237,0.3) !important;
+  border-radius: 100px !important;
+  padding: 4px 12px !important;
+  color: var(--accent-2) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+}
+
+.nav-admin-link:hover {
+  background: rgba(124,58,237,0.22) !important;
+}
+
 .theme-toggle {
   width: 40px;
   height: 40px;

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Owner Access — Founderos Command Center</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="receptionists.css" />
+  <link rel="stylesheet" href="scout.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="admin-body">
+
+  <!-- Access Gate -->
+  <div class="access-gate" id="accessGate">
+    <div class="access-gate__card">
+      <div class="access-gate__logo">
+        <span class="logo-mark">✦</span>
+        <span>Founderos</span>
+      </div>
+      <h2>Owner Access</h2>
+      <p>Enter your owner PIN to access the full command center.</p>
+      <div class="access-pin" id="pinDisplay">
+        <span class="pin-dot" id="p1"></span>
+        <span class="pin-dot" id="p2"></span>
+        <span class="pin-dot" id="p3"></span>
+        <span class="pin-dot" id="p4"></span>
+      </div>
+      <div class="access-keypad">
+        <button onclick="pinKey('1')">1</button>
+        <button onclick="pinKey('2')">2</button>
+        <button onclick="pinKey('3')">3</button>
+        <button onclick="pinKey('4')">4</button>
+        <button onclick="pinKey('5')">5</button>
+        <button onclick="pinKey('6')">6</button>
+        <button onclick="pinKey('7')">7</button>
+        <button onclick="pinKey('8')">8</button>
+        <button onclick="pinKey('9')">9</button>
+        <button onclick="pinKey('clr')" class="key-clr">⌫</button>
+        <button onclick="pinKey('0')">0</button>
+        <button onclick="pinKey('ok')" class="key-ok">✓</button>
+      </div>
+      <div class="access-hint">Default PIN: <strong>1234</strong></div>
+    </div>
+  </div>
+
+  <!-- Admin Shell (hidden until unlocked) -->
+  <div class="admin-shell" id="adminShell" style="display:none">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar__brand">
+        <span class="logo-mark">✦</span>
+        <div>
+          <div class="admin-sidebar__name">Founderos</div>
+          <div class="admin-sidebar__role">Owner Access</div>
+        </div>
+        <button class="admin-sidebar__collapse" onclick="toggleSidebar()" title="Collapse">‹</button>
+      </div>
+
+      <nav class="admin-nav">
+        <div class="admin-nav__section">Overview</div>
+        <a class="admin-nav__item admin-nav__item--active" onclick="showSection('overview')" href="#">
+          <span>📊</span> Dashboard
+        </a>
+        <a class="admin-nav__item" onclick="showSection('analytics')" href="#">
+          <span>📈</span> Analytics
+        </a>
+        <a class="admin-nav__item" onclick="showSection('revenue')" href="#">
+          <span>💰</span> Revenue
+        </a>
+
+        <div class="admin-nav__section">Team</div>
+        <a class="admin-nav__item" onclick="showSection('agents')" href="#">
+          <span>👥</span> Manage Agents
+        </a>
+        <a class="admin-nav__item" onclick="showSection('leads')" href="#">
+          <span>🎯</span> All Leads
+        </a>
+        <a class="admin-nav__item" onclick="showSection('clients')" href="#">
+          <span>🤝</span> Clients Won
+        </a>
+
+        <div class="admin-nav__section">Channels</div>
+        <a class="admin-nav__item" onclick="showSection('channels')" href="#">
+          <span>📡</span> Channel Config
+        </a>
+        <a class="admin-nav__item" onclick="showSection('apis')" href="#">
+          <span>🔗</span> API Connections
+        </a>
+        <a class="admin-nav__item" onclick="showSection('pitches')" href="#">
+          <span>✉</span> Pitch Templates
+        </a>
+
+        <div class="admin-nav__section">Settings</div>
+        <a class="admin-nav__item" onclick="showSection('business')" href="#">
+          <span>🏢</span> Business Settings
+        </a>
+        <a class="admin-nav__item" onclick="showSection('targets')" href="#">
+          <span>🎯</span> Scout Targets
+        </a>
+        <a class="admin-nav__item" onclick="showSection('notifications')" href="#">
+          <span>🔔</span> Notifications
+        </a>
+        <a class="admin-nav__item" onclick="showSection('security')" href="#">
+          <span>🔐</span> Security & PIN
+        </a>
+
+        <div class="admin-nav__section">Pages</div>
+        <a class="admin-nav__item" href="index.html" target="_blank"><span>🏠</span> Main Site</a>
+        <a class="admin-nav__item" href="receptionists.html" target="_blank"><span>📞</span> Receptionists</a>
+        <a class="admin-nav__item" href="scout.html" target="_blank"><span>🔍</span> Scout</a>
+      </nav>
+
+      <div class="admin-sidebar__footer">
+        <button class="admin-lock-btn" onclick="lockAdmin()">🔒 Lock</button>
+        <button class="theme-toggle" id="themeToggle" style="margin-left:auto">
+          <span class="theme-toggle__icon">☀</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main" id="adminMain">
+
+      <!-- Top Bar -->
+      <header class="admin-topbar">
+        <div class="admin-topbar__left">
+          <button class="admin-mobile-menu" onclick="toggleSidebar()">☰</button>
+          <div class="admin-topbar__title" id="topbarTitle">Dashboard</div>
+        </div>
+        <div class="admin-topbar__right">
+          <div class="admin-live-badge">
+            <span class="r-live-dot"></span> Live
+          </div>
+          <div class="admin-time" id="adminTime"></div>
+          <div class="admin-topbar__avatar">OW</div>
+        </div>
+      </header>
+
+      <!-- ── SECTION: Overview Dashboard ── -->
+      <section class="admin-section admin-section--active" id="sec-overview">
+        <!-- Hero Stats Row -->
+        <div class="admin-stat-row">
+          <div class="admin-stat-card admin-stat-card--primary">
+            <div class="admin-stat-card__icon">📞</div>
+            <div class="admin-stat-card__body">
+              <div class="admin-stat-card__num" id="ov-calls">0</div>
+              <div class="admin-stat-card__label">Calls Handled Today</div>
+              <div class="admin-stat-card__delta">↑ 12% vs yesterday</div>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-card__icon">💬</div>
+            <div class="admin-stat-card__body">
+              <div class="admin-stat-card__num" id="ov-texts">0</div>
+              <div class="admin-stat-card__label">Texts Replied</div>
+              <div class="admin-stat-card__delta">↑ 8% vs yesterday</div>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-card__icon">📱</div>
+            <div class="admin-stat-card__body">
+              <div class="admin-stat-card__num" id="ov-social">0</div>
+              <div class="admin-stat-card__label">Social DMs Sent</div>
+              <div class="admin-stat-card__delta">↑ 34% vs yesterday</div>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-card__icon">🔍</div>
+            <div class="admin-stat-card__body">
+              <div class="admin-stat-card__num" id="ov-scouted">0</div>
+              <div class="admin-stat-card__label">Businesses Scouted</div>
+              <div class="admin-stat-card__delta">Target: 100/day</div>
+            </div>
+          </div>
+          <div class="admin-stat-card admin-stat-card--green">
+            <div class="admin-stat-card__icon">🎉</div>
+            <div class="admin-stat-card__body">
+              <div class="admin-stat-card__num" id="ov-won">0</div>
+              <div class="admin-stat-card__label">New Clients Won</div>
+              <div class="admin-stat-card__delta" id="ov-revenue">$0 revenue</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agent Status + Recent Wins grid -->
+        <div class="admin-grid-2">
+          <!-- Agent Status -->
+          <div class="admin-card">
+            <div class="admin-card__header">
+              <h3>Agent Status</h3>
+              <span class="admin-badge admin-badge--green">All Online</span>
+            </div>
+            <div id="agentStatusList"></div>
+          </div>
+
+          <!-- Pipeline Snapshot -->
+          <div class="admin-card">
+            <div class="admin-card__header">
+              <h3>Pipeline Snapshot</h3>
+              <a href="#" onclick="showSection('leads')" class="admin-link">View All →</a>
+            </div>
+            <div id="pipelineSnapshot"></div>
+          </div>
+        </div>
+
+        <!-- Channel Breakdown + Recent Activity -->
+        <div class="admin-grid-2">
+          <div class="admin-card">
+            <div class="admin-card__header"><h3>Channel Breakdown</h3></div>
+            <div id="channelBreakdown"></div>
+          </div>
+          <div class="admin-card">
+            <div class="admin-card__header">
+              <h3>Recent Activity</h3>
+              <div class="admin-live-badge" style="font-size:0.72rem"><span class="r-live-dot" style="width:6px;height:6px"></span> Live</div>
+            </div>
+            <div class="admin-feed" id="adminFeed"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECTION: Analytics ── -->
+      <section class="admin-section" id="sec-analytics">
+        <div class="admin-section__title">Analytics & Performance</div>
+        <div class="admin-stat-row">
+          <div class="admin-stat-card"><div class="admin-stat-card__icon">📊</div><div class="admin-stat-card__body"><div class="admin-stat-card__num">38%</div><div class="admin-stat-card__label">Reply Rate (all channels)</div></div></div>
+          <div class="admin-stat-card"><div class="admin-stat-card__icon">⏱</div><div class="admin-stat-card__body"><div class="admin-stat-card__num">8s</div><div class="admin-stat-card__label">Avg First Response Time</div></div></div>
+          <div class="admin-stat-card"><div class="admin-stat-card__icon">🔄</div><div class="admin-stat-card__body"><div class="admin-stat-card__num">14%</div><div class="admin-stat-card__label">Lead-to-Client Conversion</div></div></div>
+          <div class="admin-stat-card admin-stat-card--green"><div class="admin-stat-card__icon">💸</div><div class="admin-stat-card__body"><div class="admin-stat-card__num">$1,200</div><div class="admin-stat-card__label">Avg Deal Size</div></div></div>
+        </div>
+        <div class="admin-grid-2">
+          <div class="admin-card">
+            <div class="admin-card__header"><h3>Outreach by Platform</h3></div>
+            <div id="platformBreakdown"></div>
+          </div>
+          <div class="admin-card">
+            <div class="admin-card__header"><h3>Weekly Performance</h3></div>
+            <div id="weeklyChart"></div>
+          </div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-card__header"><h3>Top Performing Industries</h3></div>
+          <div id="industryBreakdown"></div>
+        </div>
+      </section>
+
+      <!-- ── SECTION: Revenue ── -->
+      <section class="admin-section" id="sec-revenue">
+        <div class="admin-section__title">Revenue Tracker</div>
+        <div class="admin-stat-row">
+          <div class="admin-stat-card admin-stat-card--primary"><div class="admin-stat-card__icon">💰</div><div class="admin-stat-card__body"><div class="admin-stat-card__num" id="rev-today">$0</div><div class="admin-stat-card__label">Revenue Today</div></div></div>
+          <div class="admin-stat-card"><div class="admin-stat-card__icon">📅</div><div class="admin-stat-card__body"><div class="admin-stat-card__num" id="rev-month">$0</div><div class="admin-stat-card__label">This Month</div></div></div>
+          <div class="admin-stat-card"><div class="admin-stat-card__icon">🎯</div><div class="admin-stat-card__body"><div class="admin-stat-card__num" id="rev-pipeline">$0</div><div class="admin-stat-card__label">In Pipeline</div></div></div>
+          <div class="admin-stat-card admin-stat-card--green"><div class="admin-stat-card__icon">📈</div><div class="admin-stat-card__body"><div class="admin-stat-card__num">$14,400</div><div class="admin-stat-card__label">Projected Monthly</div></div></div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-card__header"><h3>Recent Transactions</h3></div>
+          <div id="revenueTable"></div>
+        </div>
+      </section>
+
+      <!-- ── SECTION: Manage Agents ── -->
+      <section class="admin-section" id="sec-agents">
+        <div class="admin-section__title">Manage Agents</div>
+        <div class="admin-agents-grid" id="adminAgentsGrid"></div>
+      </section>
+
+      <!-- ── SECTION: All Leads ── -->
+      <section class="admin-section" id="sec-leads">
+        <div class="admin-section__title">All Leads</div>
+        <div class="admin-card">
+          <div class="admin-card__header">
+            <h3>Lead Database <span class="admin-badge" id="leadCount">0</span></h3>
+            <div style="display:flex;gap:8px">
+              <select id="leadFilterStatus" onchange="filterLeads()" class="admin-select">
+                <option value="">All Statuses</option>
+                <option>Scouted</option><option>Contacted</option><option>Replied</option>
+                <option>Interested</option><option>Booked</option><option>Won</option>
+              </select>
+              <button class="btn btn--primary" style="padding:8px 14px;font-size:0.82rem" onclick="exportLeads()">⬇ Export CSV</button>
+            </div>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="leadsTable">
+              <thead><tr><th>Business</th><th>Industry</th><th>Location</th><th>Phone</th><th>Platform</th><th>Status</th><th>Score</th><th>Action</th></tr></thead>
+              <tbody id="leadsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECTION: Clients Won ── -->
+      <section class="admin-section" id="sec-clients">
+        <div class="admin-section__title">Clients Won</div>
+        <div class="admin-card">
+          <div class="admin-card__header"><h3>Converted Clients</h3><span class="admin-badge admin-badge--green" id="clientCount">0 clients</span></div>
+          <div id="clientsList"></div>
+        </div>
+      </section>
+
+      <!-- ── SECTION: Channel Config ── -->
+      <section class="admin-section" id="sec-channels">
+        <div class="admin-section__title">Channel Configuration</div>
+        <div class="admin-channels-grid" id="channelConfigGrid"></div>
+      </section>
+
+      <!-- ── SECTION: API Connections ── -->
+      <section class="admin-section" id="sec-apis">
+        <div class="admin-section__title">API Connections</div>
+        <p class="admin-section__sub">Connect real services to go live. Each integration unlocks that channel for your agents.</p>
+        <div class="admin-apis-grid" id="apiGrid"></div>
+      </section>
+
+      <!-- ── SECTION: Pitch Templates ── -->
+      <section class="admin-section" id="sec-pitches">
+        <div class="admin-section__title">Pitch Templates</div>
+        <div class="admin-pitch-editor" id="pitchEditor"></div>
+      </section>
+
+      <!-- ── SECTION: Business Settings ── -->
+      <section class="admin-section" id="sec-business">
+        <div class="admin-section__title">Business Settings</div>
+        <div class="admin-card">
+          <form class="admin-settings-form" onsubmit="saveBizSettings(event)">
+            <div class="admin-form-row">
+              <div class="admin-form-group">
+                <label>Business Name</label>
+                <input type="text" id="biz-name" value="Founderos" />
+              </div>
+              <div class="admin-form-group">
+                <label>Website URL</label>
+                <input type="text" id="biz-url" value="founderos.com" />
+              </div>
+            </div>
+            <div class="admin-form-row">
+              <div class="admin-form-group">
+                <label>Owner Name</label>
+                <input type="text" id="biz-owner" placeholder="Your name" />
+              </div>
+              <div class="admin-form-group">
+                <label>Contact Email</label>
+                <input type="email" id="biz-email" placeholder="hello@founderos.com" />
+              </div>
+            </div>
+            <div class="admin-form-row">
+              <div class="admin-form-group">
+                <label>Phone Number (for Aria)</label>
+                <input type="tel" id="biz-phone" placeholder="+1 (555) 000-0000" />
+              </div>
+              <div class="admin-form-group">
+                <label>Starting Price ($)</label>
+                <input type="number" id="biz-price" value="799" />
+              </div>
+            </div>
+            <div class="admin-form-group">
+              <label>Business Tagline (used in pitches)</label>
+              <input type="text" id="biz-tagline" value="We build stunning websites for local businesses — live in 5 days, starting from $799." />
+            </div>
+            <div class="admin-form-group">
+              <label>Agent Signature Name</label>
+              <input type="text" id="biz-sig" value="Riley @ Luminary" placeholder="How agents sign their messages" />
+            </div>
+            <button type="submit" class="btn btn--primary">💾 Save Business Settings</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ── SECTION: Scout Targets ── -->
+      <section class="admin-section" id="sec-targets">
+        <div class="admin-section__title">Scout Target Configuration</div>
+        <div class="admin-grid-2">
+          <div class="admin-card">
+            <div class="admin-card__header"><h3>Daily Goals</h3></div>
+            <form class="admin-settings-form" onsubmit="saveTargets(event)">
+              <div class="admin-form-group">
+                <label>Businesses to Scout Per Day</label>
+                <input type="number" id="t-daily" value="100" min="10" max="500" />
+              </div>
+              <div class="admin-form-group">
+                <label>Outreach Texts Per Day</label>
+                <input type="number" id="t-texts" value="80" />
+              </div>
+              <div class="admin-form-group">
+                <label>Social DMs Per Day</label>
+                <input type="number" id="t-dms" value="200" />
+              </div>
+              <div class="admin-form-group">
+                <label>LinkedIn Messages Per Day</label>
+                <input type="number" id="t-li" value="50" />
+              </div>
+              <div class="admin-form-group">
+                <label>Follow-Up Delay (hours after no reply)</label>
+                <input type="number" id="t-followup" value="24" />
+              </div>
+              <button type="submit" class="btn btn--primary">💾 Save Targets</button>
+            </form>
+          </div>
+          <div class="admin-card">
+            <div class="admin-card__header"><h3>Target Industries</h3></div>
+            <div class="admin-industry-checks" id="industryChecks"></div>
+            <div class="admin-card__header" style="margin-top:24px"><h3>Target Locations</h3></div>
+            <div class="admin-form-group">
+              <textarea id="targetLocations" rows="5" placeholder="Austin, TX&#10;Miami, FL&#10;Dallas, TX&#10;...one per line"></textarea>
+            </div>
+            <button class="btn btn--primary" onclick="saveLocations()">💾 Save Locations</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECTION: Notifications ── -->
+      <section class="admin-section" id="sec-notifications">
+        <div class="admin-section__title">Notification Settings</div>
+        <div class="admin-card">
+          <form class="admin-settings-form" onsubmit="saveNotifications(event)">
+            <div class="admin-notif-group">
+              <h4>Alert me when:</h4>
+              <div id="notifToggles"></div>
+            </div>
+            <div class="admin-form-group" style="margin-top:24px">
+              <label>Notify via Email</label>
+              <input type="email" id="notif-email" placeholder="owner@founderos.com" />
+            </div>
+            <div class="admin-form-group">
+              <label>Notify via SMS</label>
+              <input type="tel" id="notif-sms" placeholder="+1 (555) 000-0000" />
+            </div>
+            <div class="admin-form-group">
+              <label>Slack Webhook URL</label>
+              <input type="url" id="notif-slack" placeholder="https://hooks.slack.com/services/…" />
+            </div>
+            <button type="submit" class="btn btn--primary">💾 Save Notifications</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ── SECTION: Security & PIN ── -->
+      <section class="admin-section" id="sec-security">
+        <div class="admin-section__title">Security & Access</div>
+        <div class="admin-grid-2">
+          <div class="admin-card">
+            <div class="admin-card__header"><h3>Change Owner PIN</h3></div>
+            <form class="admin-settings-form" onsubmit="changePIN(event)">
+              <div class="admin-form-group">
+                <label>Current PIN</label>
+                <input type="password" id="pin-current" maxlength="4" placeholder="••••" />
+              </div>
+              <div class="admin-form-group">
+                <label>New PIN (4 digits)</label>
+                <input type="password" id="pin-new" maxlength="4" placeholder="••••" />
+              </div>
+              <div class="admin-form-group">
+                <label>Confirm New PIN</label>
+                <input type="password" id="pin-confirm" maxlength="4" placeholder="••••" />
+              </div>
+              <button type="submit" class="btn btn--primary">🔐 Update PIN</button>
+            </form>
+          </div>
+          <div class="admin-card">
+            <div class="admin-card__header"><h3>Access Log</h3></div>
+            <div id="accessLog"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Toast -->
+  <div class="r-toast" id="toast"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
