@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Scout — Founderos Lead Engine</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="receptionists.css" />
+  <link rel="stylesheet" href="scout.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="logo-mark">✦</span>
+        Luminary
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="receptionists.html">Receptionists</a></li>
+        <li><a href="scout.html" class="active">Scout</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="scout-nav-brand">
+        <span class="scout-nav-brand__label">Powered by</span>
+        <a href="#" class="scout-nav-brand__logo">Founderos</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-toggle__icon">☀</span>
+      </button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <ul>
+        <li><a href="index.html#services" class="mobile-link">Services</a></li>
+        <li><a href="receptionists.html" class="mobile-link">Receptionists</a></li>
+        <li><a href="scout.html" class="mobile-link">Scout</a></li>
+        <li><a href="index.html#contact" class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Scout Hero -->
+  <section class="scout-hero">
+    <div class="scout-hero__bg">
+      <div class="scout-hero__orb scout-hero__orb--1"></div>
+      <div class="scout-hero__orb scout-hero__orb--2"></div>
+      <div class="scout-hero__grid"></div>
+    </div>
+    <div class="container">
+      <div class="scout-hero__content">
+        <div class="scout-hero__badge">
+          <span class="badge-dot"></span>
+          Riley &amp; Casey are scouting — <span id="scoutLiveCount">0</span> businesses found today
+        </div>
+        <h1 class="scout-hero__title">
+          100 Businesses a Day.<br />
+          <span class="gradient-text">Zero Websites. All Leads.</span>
+        </h1>
+        <p class="scout-hero__sub">
+          Riley scouts businesses with no online presence. Casey manages the pipeline.
+          Every lead gets a personalised pitch that drives traffic back to
+          <strong>Founderos</strong> — your website-building business.
+        </p>
+
+        <!-- Daily Goal Progress -->
+        <div class="scout-progress-card">
+          <div class="scout-progress-card__header">
+            <span>Today's Scout Goal</span>
+            <span id="progressLabel">0 / 100 businesses</span>
+          </div>
+          <div class="scout-progress-bar">
+            <div class="scout-progress-fill" id="progressFill" style="width:0%"></div>
+          </div>
+          <div class="scout-progress-card__stats">
+            <div class="scout-ps">
+              <span class="scout-ps__num" id="statScouted">0</span>
+              <span class="scout-ps__label">Scouted</span>
+            </div>
+            <div class="scout-ps">
+              <span class="scout-ps__num" id="statContacted">0</span>
+              <span class="scout-ps__label">Texted</span>
+            </div>
+            <div class="scout-ps">
+              <span class="scout-ps__num" id="statReplied">0</span>
+              <span class="scout-ps__label">Replied</span>
+            </div>
+            <div class="scout-ps">
+              <span class="scout-ps__num" id="statInterested">0</span>
+              <span class="scout-ps__label">Interested</span>
+            </div>
+            <div class="scout-ps">
+              <span class="scout-ps__num" id="statBooked">0</span>
+              <span class="scout-ps__label">Booked</span>
+            </div>
+            <div class="scout-ps scout-ps--win">
+              <span class="scout-ps__num" id="statWon">0</span>
+              <span class="scout-ps__label">Won 🎉</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Start Scout Button -->
+        <div class="scout-hero__cta">
+          <button class="btn btn--primary btn--lg" id="startScoutBtn" onclick="startScout()">
+            <span id="scoutBtnIcon">🔍</span>
+            <span id="scoutBtnText">Start Scouting</span>
+          </button>
+          <a href="#pipeline" class="btn btn--ghost btn--lg">View Pipeline →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scout Settings Bar -->
+  <div class="scout-filters-bar">
+    <div class="container">
+      <div class="scout-filters">
+        <div class="scout-filter-group">
+          <label>Industry</label>
+          <select id="filterIndustry" onchange="applyFilters()">
+            <option value="">All Industries</option>
+            <option value="restaurant">Restaurants &amp; Food</option>
+            <option value="salon">Salons &amp; Spas</option>
+            <option value="auto">Auto &amp; Mechanics</option>
+            <option value="contractor">Contractors &amp; Trades</option>
+            <option value="retail">Retail &amp; Boutiques</option>
+            <option value="medical">Medical &amp; Dental</option>
+            <option value="fitness">Fitness &amp; Wellness</option>
+            <option value="pet">Pet Services</option>
+          </select>
+        </div>
+        <div class="scout-filter-group">
+          <label>Location</label>
+          <input type="text" id="filterLocation" placeholder="City or ZIP…" oninput="applyFilters()" />
+        </div>
+        <div class="scout-filter-group">
+          <label>Status</label>
+          <select id="filterStatus" onchange="applyFilters()">
+            <option value="">All</option>
+            <option value="scouted">Scouted</option>
+            <option value="contacted">Texted</option>
+            <option value="replied">Replied</option>
+            <option value="interested">Interested</option>
+            <option value="booked">Booked</option>
+            <option value="won">Won</option>
+          </select>
+        </div>
+        <div class="scout-filter-group">
+          <label>&nbsp;</label>
+          <button class="btn btn--primary" onclick="sendBulkPitches()">📤 Bulk Text All Untouched</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Business List + Pitch Composer -->
+  <section class="scout-main section" id="businesses">
+    <div class="container">
+      <div class="scout-main__grid">
+
+        <!-- Business List -->
+        <div class="scout-biz-panel">
+          <div class="scout-biz-panel__header">
+            <h3>Businesses Without Websites <span class="scout-count-badge" id="bizCount">0</span></h3>
+            <div class="scout-biz-panel__sort">
+              <select onchange="sortBusinesses(this.value)">
+                <option value="newest">Newest First</option>
+                <option value="industry">By Industry</option>
+                <option value="status">By Status</option>
+                <option value="score">By Score</option>
+              </select>
+            </div>
+          </div>
+          <div class="scout-biz-list" id="bizList">
+            <div class="scout-empty-state">
+              <span>🔍</span>
+              <p>Click <strong>Start Scouting</strong> above to discover businesses<br />without websites in your target areas.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pitch Composer -->
+        <div class="scout-pitch-panel" id="pitchPanel">
+          <div class="scout-pitch-empty" id="pitchEmpty">
+            <span>✉</span>
+            <p>Select a business from the list<br />to generate a personalised pitch.</p>
+          </div>
+          <div class="scout-pitch-composer" id="pitchComposer" style="display:none">
+            <div class="scout-pitch-biz" id="pitchBizInfo"></div>
+            <div class="scout-pitch-tabs">
+              <button class="scout-pitch-tab scout-pitch-tab--active" onclick="switchPitchTab(this,'sms')">💬 SMS Pitch</button>
+              <button class="scout-pitch-tab" onclick="switchPitchTab(this,'call')">📞 Call Script</button>
+              <button class="scout-pitch-tab" onclick="switchPitchTab(this,'email')">✉ Email Draft</button>
+            </div>
+
+            <!-- SMS -->
+            <div class="scout-pitch-pane" id="pane-sms">
+              <div class="scout-pitch-label">Personalised SMS Pitch</div>
+              <textarea class="scout-pitch-msg" id="smsPitch" rows="5"></textarea>
+              <div class="scout-pitch-msg-meta">
+                <span id="smsCharCount">0 / 160 chars</span>
+                <button class="r-compose-ai" onclick="regeneratePitch('sms')">✦ Regenerate</button>
+              </div>
+              <div class="scout-pitch-actions">
+                <button class="btn btn--ghost" onclick="copyPitch('sms')">Copy</button>
+                <button class="btn btn--primary" onclick="sendPitch('sms')" id="sendSmsBtn">📤 Send Text Now</button>
+              </div>
+            </div>
+
+            <!-- Call Script -->
+            <div class="scout-pitch-pane" id="pane-call" style="display:none">
+              <div class="scout-pitch-label">Phone Call Script</div>
+              <div class="scout-call-script" id="callScript"></div>
+              <div class="scout-pitch-actions">
+                <button class="btn btn--ghost" onclick="copyPitch('call')">Copy Script</button>
+                <button class="btn btn--primary" onclick="sendPitch('call')">📞 Initiate Call</button>
+              </div>
+            </div>
+
+            <!-- Email Draft -->
+            <div class="scout-pitch-pane" id="pane-email" style="display:none">
+              <div class="scout-pitch-label">Email Subject</div>
+              <input type="text" class="scout-email-subject" id="emailSubject" />
+              <div class="scout-pitch-label" style="margin-top:12px">Email Body</div>
+              <textarea class="scout-pitch-msg" id="emailBody" rows="8"></textarea>
+              <div class="scout-pitch-actions">
+                <button class="btn btn--ghost" onclick="copyPitch('email')">Copy</button>
+                <button class="btn btn--primary" onclick="sendPitch('email')">✉ Send Email</button>
+              </div>
+            </div>
+
+            <!-- Founderos Link Preview -->
+            <div class="scout-founderos-preview">
+              <div class="scout-founderos-preview__icon">🌐</div>
+              <div>
+                <div class="scout-founderos-preview__label">Lead destination</div>
+                <div class="scout-founderos-preview__url">founderos.com</div>
+              </div>
+              <span class="scout-founderos-preview__badge">Your site</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Pipeline Board -->
+  <section class="scout-pipeline section" id="pipeline">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Lead Pipeline</div>
+        <h2 class="section-heading">From <em>cold lead</em> to paying client</h2>
+        <p class="section-sub">Every business Riley texts automatically flows through this pipeline. Casey tracks every move.</p>
+      </div>
+
+      <div class="pipeline-board" id="pipelineBoard">
+        <!-- columns rendered by JS -->
+      </div>
+
+      <!-- Conversion Summary -->
+      <div class="pipeline-summary">
+        <div class="pipeline-summary__card">
+          <span class="pipeline-summary__icon">📈</span>
+          <div>
+            <div class="pipeline-summary__num" id="convRate">0%</div>
+            <div class="pipeline-summary__label">Conversion Rate</div>
+          </div>
+        </div>
+        <div class="pipeline-summary__card">
+          <span class="pipeline-summary__icon">💰</span>
+          <div>
+            <div class="pipeline-summary__num" id="projRevenue">$0</div>
+            <div class="pipeline-summary__label">Projected Revenue</div>
+          </div>
+        </div>
+        <div class="pipeline-summary__card">
+          <span class="pipeline-summary__icon">⏱</span>
+          <div>
+            <div class="pipeline-summary__num">8s</div>
+            <div class="pipeline-summary__label">Avg First Reply Time</div>
+          </div>
+        </div>
+        <div class="pipeline-summary__card">
+          <span class="pipeline-summary__icon">🎯</span>
+          <div>
+            <div class="pipeline-summary__num" id="todayWon">0</div>
+            <div class="pipeline-summary__label">Clients Won Today</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agents: Riley & Casey -->
+  <section class="section" id="scoutTeam" style="background:var(--bg-2)">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Scout Agents</div>
+        <h2 class="section-heading">Meet Riley &amp; <em>Casey</em></h2>
+      </div>
+      <div class="r-team__grid" style="grid-template-columns:repeat(auto-fill,minmax(340px,1fr))">
+
+        <div class="r-agent-card">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background:linear-gradient(135deg,#f59e0b,#ec4899)">
+              <span>RI</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Riley</h3>
+              <span class="r-agent-role">Business Scout</span>
+            </div>
+            <span class="r-channel-badge r-channel-badge--outreach">🔍 Scout</span>
+          </div>
+          <p class="r-agent-bio">Finds businesses in your target area that have no website. Scores each lead by growth potential and generates a personalised pitch automatically.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" id="rileyScouted">0</span><span>Scouted today</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" id="rileyTexted">0</span><span>Texts sent</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" id="rileyRate">0</span><span>% reply rate</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>Business Research</span>
+            <span>No-Website Detection</span>
+            <span>Pitch Generation</span>
+            <span>Bulk Outreach</span>
+          </div>
+          <button class="btn btn--primary r-agent-btn" onclick="startScout()">🔍 Start Scouting →</button>
+        </div>
+
+        <div class="r-agent-card">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background:linear-gradient(135deg,#06b6d4,#3b82f6)">
+              <span>CA</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Casey</h3>
+              <span class="r-agent-role">Pipeline Manager</span>
+            </div>
+            <span class="r-channel-badge r-channel-badge--appt">📊 Pipeline</span>
+          </div>
+          <p class="r-agent-bio">Manages every lead from first contact to signed client. Follows up automatically, nurtures interested prospects, and books discovery calls with your Founderos team.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" id="caseyManaged">0</span><span>Leads managed</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" id="caseyBooked">0</span><span>Calls booked</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" id="caseyWon">0</span><span>Clients won</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>Lead Nurturing</span>
+            <span>Auto Follow-Up</span>
+            <span>Discovery Booking</span>
+            <span>Pipeline Tracking</span>
+          </div>
+          <button class="btn btn--primary r-agent-btn" onclick="document.getElementById('pipeline').scrollIntoView({behavior:'smooth'})">📊 View Pipeline →</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How the Loop Works -->
+  <section class="section r-how" id="loop">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">The Growth Loop</div>
+        <h2 class="section-heading">100 leads a day, <em>on autopilot</em></h2>
+      </div>
+      <div class="r-how__grid">
+        <div class="r-how-step reveal">
+          <div class="r-how-step__num">01</div>
+          <div class="r-how-step__icon">🔍</div>
+          <h3>Riley Scouts</h3>
+          <p>Riley scans your target area for businesses with no website — restaurants, salons, contractors, shops. 100+ per day, automatically.</p>
+        </div>
+        <div class="r-how-step reveal" data-delay="100">
+          <div class="r-how-step__num">02</div>
+          <div class="r-how-step__icon">✉</div>
+          <h3>Personalised Pitch Sent</h3>
+          <p>A custom SMS is sent to every business with their name, industry, and a direct link to <strong>Founderos</strong>. Conversational, not spammy.</p>
+        </div>
+        <div class="r-how-step reveal" data-delay="200">
+          <div class="r-how-step__num">03</div>
+          <div class="r-how-step__icon">💬</div>
+          <h3>Jordan Replies Instantly</h3>
+          <p>When they text back, Jordan from the receptionist team picks it up within seconds — answering questions and keeping them warm.</p>
+        </div>
+        <div class="r-how-step reveal" data-delay="300">
+          <div class="r-how-step__num">04</div>
+          <div class="r-how-step__icon">📞</div>
+          <h3>Aria Books the Discovery Call</h3>
+          <p>Interested leads get a call booked with your Founderos team. Aria handles the scheduling and sends a confirmation SMS.</p>
+        </div>
+        <div class="r-how-step reveal" data-delay="400">
+          <div class="r-how-step__num">05</div>
+          <div class="r-how-step__icon">🌐</div>
+          <h3>Founderos Builds the Site</h3>
+          <p>Your team at Founderos builds a beautiful website for the business. Casey tracks the deal through to close.</p>
+        </div>
+        <div class="r-how-step reveal" data-delay="500">
+          <div class="r-how-step__num">06</div>
+          <div class="r-how-step__icon">🔁</div>
+          <h3>Loop Repeats at Scale</h3>
+          <p>100 new businesses every day. The pipeline never runs dry. The team never sleeps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="cta-band__orb cta-band__orb--1"></div>
+    <div class="cta-band__orb cta-band__orb--2"></div>
+    <div class="container">
+      <div class="cta-band__inner">
+        <h2>Ready to fill <span class="gradient-text">Founderos' pipeline?</span></h2>
+        <p>Riley starts scouting the moment you press go. 100 leads. Every single day.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn--primary btn--lg" onclick="startScout();window.scrollTo({top:0,behavior:'smooth'})">🔍 Start Scouting Now</button>
+          <a href="receptionists.html" class="btn btn--ghost btn--lg">Meet the Full Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">
+            <span class="logo-mark">✦</span>
+            Luminary
+          </a>
+          <p>Powered by <strong>Founderos</strong><br />Your website-building business.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Scout</h4>
+            <ul>
+              <li><a href="#businesses">Business List</a></li>
+              <li><a href="#pipeline">Pipeline Board</a></li>
+              <li><a href="#scoutTeam">Riley &amp; Casey</a></li>
+              <li><a href="#loop">How It Works</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Team</h4>
+            <ul>
+              <li><a href="receptionists.html#team">Full Team</a></li>
+              <li><a href="receptionists.html#dashboard">Inbox</a></li>
+              <li><a href="receptionists.html#dashboard">Call Queue</a></li>
+              <li><a href="receptionists.html#dashboard">Outreach</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Founderos</h4>
+            <ul>
+              <li><a href="#">Website</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Luminary Studio · Founderos. All rights reserved.</span>
+        <span>100 leads/day ✦ Always scouting</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="r-toast" id="toast"></div>
+
+  <script src="scout.js"></script>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      const spans = hamburger.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.cssText = 'transform:translateY(7px) rotate(45deg)';
+        spans[1].style.cssText = 'opacity:0;transform:scaleX(0)';
+        spans[2].style.cssText = 'transform:translateY(-7px) rotate(-45deg)';
+      } else { spans.forEach(s => (s.style.cssText = '')); }
+    });
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.querySelectorAll('span').forEach(s => (s.style.cssText = ''));
+    }));
+
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('.theme-toggle__icon');
+    const applyTheme = (t) => {
+      document.documentElement.setAttribute('data-theme', t);
+      themeIcon.textContent = t === 'light' ? '☽' : '☀';
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark'));
+    themeToggle.addEventListener('click', () => {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const d = e.target.dataset.delay ? parseInt(e.target.dataset.delay) : 0;
+          setTimeout(() => e.target.classList.add('visible'), d);
+          ro.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  </script>
+</body>
+</html>

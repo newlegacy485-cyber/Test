@@ -24,6 +24,7 @@
         <li><a href="index.html#work">Work</a></li>
         <li><a href="index.html#services">Services</a></li>
         <li><a href="receptionists.html" class="active">Receptionists</a></li>
+        <li><a href="scout.html">Scout</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -39,6 +40,7 @@
         <li><a href="index.html#work" class="mobile-link">Work</a></li>
         <li><a href="index.html#services" class="mobile-link">Services</a></li>
         <li><a href="receptionists.html" class="mobile-link">Receptionists</a></li>
+        <li><a href="scout.html" class="mobile-link">Scout</a></li>
         <li><a href="index.html#contact" class="mobile-link">Contact</a></li>
       </ul>
     </div>
@@ -209,6 +211,62 @@
             <span>Confirmations</span>
           </div>
           <button class="btn btn--primary r-agent-btn" onclick="openPanel('appt','maya')">View Schedule →</button>
+        </div>
+
+        <!-- Riley -->
+        <div class="r-agent-card" data-agent="riley">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background: linear-gradient(135deg,#f59e0b,#ec4899)">
+              <span>RI</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Riley</h3>
+              <span class="r-agent-role">Business Scout</span>
+            </div>
+            <span class="r-channel-badge r-channel-badge--outreach">🔍 Scout</span>
+          </div>
+          <p class="r-agent-bio">Finds 100+ businesses per day that have no website. Auto-generates personalised pitches and texts them — all driving leads back to Founderos.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="100">0</span><span>Scouted/day</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="72">0</span><span>Texts sent</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="38">0</span><span>% reply rate</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>Business Research</span>
+            <span>No-Site Detection</span>
+            <span>Pitch Generation</span>
+            <span>Bulk Outreach</span>
+          </div>
+          <a href="scout.html" class="btn btn--primary r-agent-btn">🔍 Open Scout Dashboard →</a>
+        </div>
+
+        <!-- Casey -->
+        <div class="r-agent-card" data-agent="casey">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background: linear-gradient(135deg,#06b6d4,#3b82f6)">
+              <span>CA</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Casey</h3>
+              <span class="r-agent-role">Pipeline Manager</span>
+            </div>
+            <span class="r-channel-badge r-channel-badge--appt">📊 Pipeline</span>
+          </div>
+          <p class="r-agent-bio">Tracks every lead Riley finds through the full pipeline — from first text to signed Founderos client. Nurtures, follows up, and books discovery calls.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="10">0</span><span>In pipeline</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="3">0</span><span>Booked today</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="2">0</span><span>Won today</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>Lead Nurturing</span>
+            <span>Auto Follow-Up</span>
+            <span>Discovery Booking</span>
+            <span>Pipeline Tracking</span>
+          </div>
+          <a href="scout.html#pipeline" class="btn btn--primary r-agent-btn">📊 View Pipeline →</a>
         </div>
 
         <!-- Alex -->
@@ -492,6 +550,23 @@
       </div>
     </div>
   </section>
+
+  <!-- Scout Promo Band -->
+  <div style="background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(124,58,237,0.08));border-top:1px solid rgba(245,158,11,0.15);border-bottom:1px solid rgba(124,58,237,0.15);padding:48px 0">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#fbbf24;margin-bottom:10px">New — Riley &amp; Casey</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;margin-bottom:10px">100 businesses scouted &amp; pitched <em style="font-style:italic;background:var(--gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">every single day</em></h3>
+          <p style="color:var(--text-2);max-width:520px;font-size:0.95rem;line-height:1.7">Riley finds local businesses with no website and sends them a personalised pitch linking to <strong>Founderos</strong>. Casey tracks every lead until they sign. The pipeline never runs dry.</p>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a href="scout.html" class="btn btn--primary btn--lg">🔍 Open Scout Dashboard</a>
+          <a href="scout.html#pipeline" class="btn btn--ghost btn--lg">View Pipeline →</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- How It Works -->
   <section class="r-how section" id="how">
