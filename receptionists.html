@@ -213,6 +213,62 @@
           <button class="btn btn--primary r-agent-btn" onclick="openPanel('appt','maya')">View Schedule →</button>
         </div>
 
+        <!-- Morgan -->
+        <div class="r-agent-card" data-agent="morgan">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background: linear-gradient(135deg,#E1306C,#F77737)">
+              <span>MO</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Morgan</h3>
+              <span class="r-agent-role">Social DM Specialist</span>
+            </div>
+            <span class="r-channel-badge" style="background:rgba(225,48,108,0.12);color:#F77737">📱 Social</span>
+          </div>
+          <p class="r-agent-bio">Handles all Facebook, Instagram, and X/Twitter DMs. Replies to every message within seconds and drives interested leads toward Founderos.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="89">0</span><span>DMs today</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="42">0</span><span>% reply rate</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="11">0</span><span>Leads gen'd</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>Facebook DMs</span>
+            <span>Instagram DMs</span>
+            <span>X / Twitter DMs</span>
+            <span>WhatsApp</span>
+          </div>
+          <button class="btn btn--primary r-agent-btn" onclick="switchTab('social')">📱 Open Social Inbox →</button>
+        </div>
+
+        <!-- Drew -->
+        <div class="r-agent-card" data-agent="drew">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background: linear-gradient(135deg,#0A66C2,#0ea5e9)">
+              <span>DR</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Drew</h3>
+              <span class="r-agent-role">LinkedIn Outreach</span>
+            </div>
+            <span class="r-channel-badge" style="background:rgba(10,102,194,0.12);color:#0A66C2">🔷 LinkedIn</span>
+          </div>
+          <p class="r-agent-bio">Manages all LinkedIn messages and connection requests. Focuses on professional businesses — contractors, medical, insurance — and converts them to Founderos clients.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="34">0</span><span>Messages sent</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="28">0</span><span>% reply rate</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="6">0</span><span>Meetings booked</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>LinkedIn Messages</span>
+            <span>Connection Requests</span>
+            <span>InMail Outreach</span>
+            <span>Professional Leads</span>
+          </div>
+          <button class="btn btn--primary r-agent-btn" onclick="switchTab('social')">🔷 View LinkedIn Inbox →</button>
+        </div>
+
         <!-- Riley -->
         <div class="r-agent-card" data-agent="riley">
           <div class="r-agent-card__top">
@@ -325,6 +381,10 @@
         </button>
         <button class="r-tab" role="tab" data-tab="appt" onclick="switchTab('appt')">
           <span class="r-tab__icon">📅</span> Appointments
+        </button>
+        <button class="r-tab" role="tab" data-tab="social" onclick="switchTab('social')">
+          <span class="r-tab__icon">📱</span> Social DMs
+          <span class="r-tab__badge" id="badge-social">5</span>
         </button>
         <button class="r-tab" role="tab" data-tab="activity" onclick="switchTab('activity')">
           <span class="r-tab__icon">⚡</span> Activity Feed
@@ -527,6 +587,21 @@
                 <button type="submit" class="btn btn--primary btn--full">Book & Notify Client</button>
               </form>
             </div>
+          </div>
+        </div>
+
+        <!-- Social DMs -->
+        <div class="r-panel" id="panel-social" style="flex-direction:column;padding:0">
+          <div class="social-inbox-bar">
+            <button class="social-platform-btn social-platform-btn--active" data-sp="all"   onclick="filterSocial(this,'all')">All DMs</button>
+            <button class="social-platform-btn" style="--spc:#1877F2" data-sp="fb"   onclick="filterSocial(this,'fb')">🔵 Facebook</button>
+            <button class="social-platform-btn" style="--spc:#E1306C" data-sp="ig"   onclick="filterSocial(this,'ig')">📷 Instagram</button>
+            <button class="social-platform-btn" style="--spc:#0A66C2" data-sp="li"   onclick="filterSocial(this,'li')">🔷 LinkedIn</button>
+            <button class="social-platform-btn" style="--spc:#1DA1F2" data-sp="x"    onclick="filterSocial(this,'x')">🐦 X / Twitter</button>
+            <button class="social-platform-btn" style="--spc:#25D366" data-sp="wa"   onclick="filterSocial(this,'wa')">🟢 WhatsApp</button>
+          </div>
+          <div class="social-inbox" id="socialInbox">
+            <!-- populated by JS -->
           </div>
         </div>
 

@@ -152,6 +152,7 @@ let isOnCall = false;
 document.addEventListener('DOMContentLoaded', () => {
   animateHeroCounters();
   animateAgentCounters();
+  renderSocialInbox('all');
   renderConvos();
   renderCallLog();
   renderLiveCalls();
@@ -183,6 +184,104 @@ function animateNum(id, target, duration) {
     if (p < 1) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
+}
+
+/* ── Social DM Data ─────────────────────────────── */
+const SOCIAL_PLATFORM_COLORS = {
+  fb: '#1877F2', ig: '#E1306C', li: '#0A66C2', x: '#1DA1F2', wa: '#25D366',
+};
+
+const SOCIAL_DMS = [
+  { id:'s1', platform:'fb',  icon:'🔵', name:'Maria Rodriguez',   business:"Bella's Hair Studio",       time:'3m ago',  unread:true,
+    msg:"Hi! I saw your message about our website. We've been meaning to get one for years! What would it cost for a salon site? 😊",
+    agent:'Morgan', status:'interested' },
+  { id:'s2', platform:'ig',  icon:'📷', name:'@coastal_hair',      business:'Coastal Hair Artistry',     time:'8m ago',  unread:true,
+    msg:"Thanks for the DM! Your portfolio on founderos.com looks amazing. Can we book a call this week?",
+    agent:'Morgan', status:'booked' },
+  { id:'s3', platform:'li',  icon:'🔷', name:'James Park',         business:'ProFix Plumbing Co',        time:'12m ago', unread:true,
+    msg:"Hello, I received your LinkedIn message. We're definitely interested in a professional website. We have 16 years in the business. What's the timeline?",
+    agent:'Drew',   status:'interested' },
+  { id:'s4', platform:'x',   icon:'🐦', name:'@smokeandfirebbq',   business:'Smoke & Fire BBQ',          time:'18m ago', unread:true,
+    msg:"Haha you're right we don't have a website 😂 Been meaning to. What do you charge? founderos.com looks clean 🔥",
+    agent:'Morgan', status:'replied' },
+  { id:'s5', platform:'wa',  icon:'🟢', name:'Elena Vasquez',      business:'Radiant Skin Clinic',       time:'25m ago', unread:true,
+    msg:"Hi Riley! Just checked founderos.com — really impressed. Can you build something like the 3rd example? When can we start?",
+    agent:'Morgan', status:'booked' },
+  { id:'s6', platform:'fb',  icon:'🔵', name:'Tony Marchetti',     business:"Mario's Pizza & Subs",     time:'45m ago', unread:false,
+    msg:"Yeah man we need a website. I get people asking all the time where to order online. How long does it take?",
+    agent:'Morgan', status:'replied' },
+  { id:'s7', platform:'li',  icon:'🔷', name:'Dr. Sarah Chen',     business:'Valley Dental Care',        time:'1h ago',  unread:false,
+    msg:"Thank you for reaching out, Drew. We've been discussing a website upgrade. Could you send more details to my email?",
+    agent:'Drew',   status:'interested' },
+  { id:'s8', platform:'ig',  icon:'📷', name:'@glowupbeautylounge',business:'GlowUp Beauty Lounge',      time:'1h ago',  unread:false,
+    msg:"OMG yes!! I need a website so bad. 18k followers and nowhere to send people lol. Let's do this! 🙌",
+    agent:'Morgan', status:'interested' },
+  { id:'s9', platform:'x',   icon:'🐦', name:'@mountainhighbrewing',business:'Mountain High Brewing',    time:'2h ago',  unread:false,
+    msg:"Appreciate the DM! We're a small op but yeah a site would help. What's the starting price?",
+    agent:'Morgan', status:'replied' },
+  { id:'s10', platform:'li', icon:'🔷', name:'Kevin Osei',          business:'NightOwl Security',        time:'2h ago',  unread:false,
+    msg:"Hi Drew, thanks for connecting. A website is on our radar for Q3. Can we schedule a discovery call for next week?",
+    agent:'Drew',   status:'booked' },
+  { id:'s11', platform:'wa', icon:'🟢', name:'Rosa Kim',             business:'Sunrise Yoga Studio',     time:'3h ago',  unread:false,
+    msg:"We love what you did for other yoga studios. 11k IG followers but no website. How much for a booking-enabled site?",
+    agent:'Morgan', status:'interested' },
+  { id:'s12', platform:'fb', icon:'🔵', name:'Greg Holt',            business:'PowerPro Roofing',        time:'4h ago',  unread:false,
+    msg:"Thanks for the message. We're a roofing company and need a website for bids. Give me a call tomorrow?",
+    agent:'Morgan', status:'replied' },
+];
+
+let currentSocialFilter = 'all';
+
+function renderSocialInbox(filter) {
+  const el = document.getElementById('socialInbox');
+  if (!el) return;
+  const items = filter === 'all' ? SOCIAL_DMS : SOCIAL_DMS.filter(d => d.platform === filter);
+  if (!items.length) {
+    el.innerHTML = '<div class="r-chat__empty" style="padding:40px 0"><span>📱</span><p>No DMs on this platform yet.</p></div>';
+    return;
+  }
+  el.innerHTML = items.map(dm => `
+    <div class="social-dm-card ${dm.unread ? 'social-dm-card--unread' : ''}" style="--platform-color:${SOCIAL_PLATFORM_COLORS[dm.platform] || 'var(--accent)'}">
+      <div class="social-dm-card__header">
+        <div class="social-dm-card__platform" style="background:${SOCIAL_PLATFORM_COLORS[dm.platform]}20">${dm.icon}</div>
+        <div class="social-dm-card__from">
+          <div class="social-dm-card__name">${dm.name}</div>
+          <div class="social-dm-card__business">${dm.business}</div>
+        </div>
+        <span class="social-dm-card__time">${dm.time}</span>
+        <span class="social-dm-card__badge" style="background:${SOCIAL_PLATFORM_COLORS[dm.platform]}18;color:${SOCIAL_PLATFORM_COLORS[dm.platform]}">${dm.agent}</span>
+      </div>
+      <div class="social-dm-card__msg">"${dm.msg}"</div>
+      <div class="social-dm-card__reply">
+        <input type="text" placeholder="Reply as ${dm.agent}…" id="social-reply-${dm.id}" onkeydown="if(event.key==='Enter') sendSocialReply('${dm.id}')" />
+        <button class="social-dm-reply-btn" style="background:${SOCIAL_PLATFORM_COLORS[dm.platform]}" onclick="sendSocialReply('${dm.id}')">Send</button>
+        <button class="r-icon-btn" title="View client profile" style="margin-left:4px">👤</button>
+        ${(dm.status === 'interested' || dm.status === 'replied') ? `<button class="r-icon-btn" title="Book discovery call" onclick="showToast('📅 Discovery call booked for ${dm.name}!')" style="margin-left:4px">📅</button>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterSocial(btn, platform) {
+  currentSocialFilter = platform;
+  document.querySelectorAll('.social-platform-btn').forEach(b => b.classList.remove('social-platform-btn--active'));
+  btn.classList.add('social-platform-btn--active');
+  renderSocialInbox(platform);
+}
+
+function sendSocialReply(id) {
+  const input = document.getElementById('social-reply-' + id);
+  const dm = SOCIAL_DMS.find(d => d.id === id);
+  if (!input || !dm) return;
+  const text = input.value.trim();
+  if (!text) return;
+  dm.unread = false;
+  input.value = '';
+  showToast(`✓ Reply sent to ${dm.name} via ${dm.icon}`);
+  renderSocialInbox(currentSocialFilter);
+  const badge = document.getElementById('badge-social');
+  const unread = SOCIAL_DMS.filter(d => d.unread).length;
+  if (badge) { badge.textContent = unread || ''; badge.style.display = unread ? 'inline-flex' : 'none'; }
 }
 
 /* Agent card mini-counters */
@@ -248,9 +347,10 @@ function switchTab(tab) {
   });
   const panel = document.getElementById('panel-' + tab);
   if (panel) {
-    panel.style.display = tab === 'texts' ? 'flex' : (tab === 'activity' ? 'flex' : 'flex');
+    panel.style.display = 'flex';
     panel.classList.add('r-panel--active');
   }
+  if (tab === 'social') renderSocialInbox(currentSocialFilter);
 }
 
 /* ── Text Inbox ──────────────────────────────────── */

@@ -154,8 +154,20 @@
           </select>
         </div>
         <div class="scout-filter-group">
+          <label>Outreach via</label>
+          <div class="platform-toggles">
+            <button class="ptoggle ptoggle--active" data-p="sms"   title="SMS"       onclick="togglePlatform(this,'sms')"  >💬</button>
+            <button class="ptoggle ptoggle--active" data-p="fb"    title="Facebook"  onclick="togglePlatform(this,'fb')"   style="--pc:#1877F2">🔵</button>
+            <button class="ptoggle ptoggle--active" data-p="ig"    title="Instagram" onclick="togglePlatform(this,'ig')"   style="--pc:#E1306C">📷</button>
+            <button class="ptoggle ptoggle--active" data-p="li"    title="LinkedIn"  onclick="togglePlatform(this,'li')"   style="--pc:#0A66C2">🔷</button>
+            <button class="ptoggle ptoggle--active" data-p="x"     title="X/Twitter" onclick="togglePlatform(this,'x')"   style="--pc:#1DA1F2">🐦</button>
+            <button class="ptoggle ptoggle--active" data-p="wa"    title="WhatsApp"  onclick="togglePlatform(this,'wa')"  style="--pc:#25D366">🟢</button>
+            <button class="ptoggle" data-p="google" title="Google" onclick="togglePlatform(this,'google')" style="--pc:#EA4335">🔴</button>
+          </div>
+        </div>
+        <div class="scout-filter-group">
           <label>&nbsp;</label>
-          <button class="btn btn--primary" onclick="sendBulkPitches()">📤 Bulk Text All Untouched</button>
+          <button class="btn btn--primary" onclick="sendBulkPitches()">📤 Bulk Outreach — All Untouched</button>
         </div>
       </div>
     </div>
@@ -191,64 +203,131 @@
         <div class="scout-pitch-panel" id="pitchPanel">
           <div class="scout-pitch-empty" id="pitchEmpty">
             <span>✉</span>
-            <p>Select a business from the list<br />to generate a personalised pitch.</p>
+            <p>Select a business from the list<br />to generate personalised pitches<br />across all their social platforms.</p>
           </div>
           <div class="scout-pitch-composer" id="pitchComposer" style="display:none">
             <div class="scout-pitch-biz" id="pitchBizInfo"></div>
-            <div class="scout-pitch-tabs">
-              <button class="scout-pitch-tab scout-pitch-tab--active" onclick="switchPitchTab(this,'sms')">💬 SMS Pitch</button>
-              <button class="scout-pitch-tab" onclick="switchPitchTab(this,'call')">📞 Call Script</button>
-              <button class="scout-pitch-tab" onclick="switchPitchTab(this,'email')">✉ Email Draft</button>
-            </div>
 
-            <!-- SMS -->
-            <div class="scout-pitch-pane" id="pane-sms">
-              <div class="scout-pitch-label">Personalised SMS Pitch</div>
-              <textarea class="scout-pitch-msg" id="smsPitch" rows="5"></textarea>
-              <div class="scout-pitch-msg-meta">
-                <span id="smsCharCount">0 / 160 chars</span>
-                <button class="r-compose-ai" onclick="regeneratePitch('sms')">✦ Regenerate</button>
-              </div>
+            <!-- Dynamic platform tabs (built by JS) -->
+            <div class="scout-pitch-tabs" id="platformTabs"></div>
+
+            <!-- Pre-built panes for each platform -->
+            <div class="pitch-pane" id="pane-sms">
+              <div class="scout-pitch-label">💬 SMS / Text Pitch <span class="platform-char-count" id="charCount-sms"></span></div>
+              <textarea class="scout-pitch-msg" id="pitch-sms" rows="5" oninput="updateCharCount('sms')"></textarea>
               <div class="scout-pitch-actions">
+                <button class="r-compose-ai" onclick="regeneratePitch('sms')">✦ Regenerate</button>
                 <button class="btn btn--ghost" onclick="copyPitch('sms')">Copy</button>
-                <button class="btn btn--primary" onclick="sendPitch('sms')" id="sendSmsBtn">📤 Send Text Now</button>
+                <button class="btn btn--primary" onclick="sendPitch('sms')">💬 Send SMS</button>
               </div>
             </div>
 
-            <!-- Call Script -->
-            <div class="scout-pitch-pane" id="pane-call" style="display:none">
-              <div class="scout-pitch-label">Phone Call Script</div>
+            <div class="pitch-pane" id="pane-fb" style="display:none">
+              <div class="scout-pitch-label" style="color:#1877F2">🔵 Facebook DM Pitch <span class="platform-char-count" id="charCount-fb"></span></div>
+              <textarea class="scout-pitch-msg" id="pitch-fb" rows="7" oninput="updateCharCount('fb')"></textarea>
+              <div class="scout-pitch-actions">
+                <button class="r-compose-ai" onclick="regeneratePitch('fb')">✦ Regenerate</button>
+                <button class="btn btn--ghost" onclick="copyPitch('fb')">Copy</button>
+                <button class="btn btn--primary" style="background:#1877F2;box-shadow:0 4px 16px #1877F240" onclick="sendPitch('fb')">🔵 Send Facebook DM</button>
+              </div>
+            </div>
+
+            <div class="pitch-pane" id="pane-ig" style="display:none">
+              <div class="scout-pitch-label" style="color:#E1306C">📷 Instagram DM Pitch <span class="platform-char-count" id="charCount-ig"></span></div>
+              <textarea class="scout-pitch-msg" id="pitch-ig" rows="6" oninput="updateCharCount('ig')"></textarea>
+              <div class="scout-pitch-actions">
+                <button class="r-compose-ai" onclick="regeneratePitch('ig')">✦ Regenerate</button>
+                <button class="btn btn--ghost" onclick="copyPitch('ig')">Copy</button>
+                <button class="btn btn--primary" style="background:linear-gradient(135deg,#E1306C,#F77737);box-shadow:0 4px 16px #E1306C40" onclick="sendPitch('ig')">📷 Send Instagram DM</button>
+              </div>
+            </div>
+
+            <div class="pitch-pane" id="pane-li" style="display:none">
+              <div class="scout-pitch-label" style="color:#0A66C2">🔷 LinkedIn Message <span class="platform-char-count" id="charCount-li"></span></div>
+              <textarea class="scout-pitch-msg" id="pitch-li" rows="10" oninput="updateCharCount('li')"></textarea>
+              <div class="scout-pitch-actions">
+                <button class="r-compose-ai" onclick="regeneratePitch('li')">✦ Regenerate</button>
+                <button class="btn btn--ghost" onclick="copyPitch('li')">Copy</button>
+                <button class="btn btn--primary" style="background:#0A66C2;box-shadow:0 4px 16px #0A66C240" onclick="sendPitch('li')">🔷 Send LinkedIn Message</button>
+              </div>
+            </div>
+
+            <div class="pitch-pane" id="pane-x" style="display:none">
+              <div class="scout-pitch-label" style="color:#1DA1F2">🐦 X / Twitter DM <span class="platform-char-count" id="charCount-x"></span></div>
+              <textarea class="scout-pitch-msg" id="pitch-x" rows="4" oninput="updateCharCount('x')"></textarea>
+              <div class="scout-pitch-actions">
+                <button class="r-compose-ai" onclick="regeneratePitch('x')">✦ Regenerate</button>
+                <button class="btn btn--ghost" onclick="copyPitch('x')">Copy</button>
+                <button class="btn btn--primary" style="background:#1DA1F2;box-shadow:0 4px 16px #1DA1F240" onclick="sendPitch('x')">🐦 Send X DM</button>
+              </div>
+            </div>
+
+            <div class="pitch-pane" id="pane-google" style="display:none">
+              <div class="scout-pitch-label" style="color:#EA4335">🔴 Google Business Message <span class="platform-char-count" id="charCount-google"></span></div>
+              <textarea class="scout-pitch-msg" id="pitch-google" rows="10" oninput="updateCharCount('google')"></textarea>
+              <div class="scout-pitch-actions">
+                <button class="r-compose-ai" onclick="regeneratePitch('google')">✦ Regenerate</button>
+                <button class="btn btn--ghost" onclick="copyPitch('google')">Copy</button>
+                <button class="btn btn--primary" style="background:#EA4335;box-shadow:0 4px 16px #EA443540" onclick="sendPitch('google')">🔴 Send via Google</button>
+              </div>
+            </div>
+
+            <div class="pitch-pane" id="pane-wa" style="display:none">
+              <div class="scout-pitch-label" style="color:#25D366">🟢 WhatsApp Message <span class="platform-char-count" id="charCount-wa"></span></div>
+              <textarea class="scout-pitch-msg" id="pitch-wa" rows="8" oninput="updateCharCount('wa')"></textarea>
+              <div class="scout-pitch-actions">
+                <button class="r-compose-ai" onclick="regeneratePitch('wa')">✦ Regenerate</button>
+                <button class="btn btn--ghost" onclick="copyPitch('wa')">Copy</button>
+                <button class="btn btn--primary" style="background:#25D366;box-shadow:0 4px 16px #25D36640" onclick="sendPitch('wa')">🟢 Send WhatsApp</button>
+              </div>
+            </div>
+
+            <!-- Call Script (always available) -->
+            <div class="pitch-pane" id="pane-call" style="display:none">
+              <div class="scout-pitch-label">📞 Phone Call Script</div>
               <div class="scout-call-script" id="callScript"></div>
               <div class="scout-pitch-actions">
-                <button class="btn btn--ghost" onclick="copyPitch('call')">Copy Script</button>
+                <button class="btn btn--ghost" onclick="copyCallScript()">Copy Script</button>
                 <button class="btn btn--primary" onclick="sendPitch('call')">📞 Initiate Call</button>
               </div>
             </div>
 
-            <!-- Email Draft -->
-            <div class="scout-pitch-pane" id="pane-email" style="display:none">
-              <div class="scout-pitch-label">Email Subject</div>
-              <input type="text" class="scout-email-subject" id="emailSubject" />
-              <div class="scout-pitch-label" style="margin-top:12px">Email Body</div>
-              <textarea class="scout-pitch-msg" id="emailBody" rows="8"></textarea>
-              <div class="scout-pitch-actions">
-                <button class="btn btn--ghost" onclick="copyPitch('email')">Copy</button>
-                <button class="btn btn--primary" onclick="sendPitch('email')">✉ Send Email</button>
-              </div>
-            </div>
-
-            <!-- Founderos Link Preview -->
+            <!-- Founderos CTA preview -->
             <div class="scout-founderos-preview">
               <div class="scout-founderos-preview__icon">🌐</div>
               <div>
-                <div class="scout-founderos-preview__label">Lead destination</div>
+                <div class="scout-founderos-preview__label">All pitches link to</div>
                 <div class="scout-founderos-preview__url">founderos.com</div>
               </div>
-              <span class="scout-founderos-preview__badge">Your site</span>
+              <span class="scout-founderos-preview__badge">Your Business</span>
             </div>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Scan Feed -->
+  <section class="scan-feed-section" id="scanSection">
+    <div class="container">
+      <div class="scan-feed-wrap">
+        <div class="scan-feed-header">
+          <div class="scan-feed-title">
+            <span class="r-live-dot"></span>
+            Live Scout Feed
+          </div>
+          <div class="scan-feed-sources">
+            <span class="scan-source" style="--c:#4285F4">🔍 Google</span>
+            <span class="scan-source" style="--c:#1877F2">🔵 Facebook</span>
+            <span class="scan-source" style="--c:#E1306C">📷 Instagram</span>
+            <span class="scan-source" style="--c:#0A66C2">🔷 LinkedIn</span>
+            <span class="scan-source" style="--c:#1DA1F2">🐦 X</span>
+            <span class="scan-source" style="--c:#25D366">🟢 WhatsApp</span>
+            <span class="scan-source" style="--c:#FF6914">🌟 Yelp</span>
+          </div>
+        </div>
+        <div class="scan-feed" id="scanFeed"></div>
       </div>
     </div>
   </section>

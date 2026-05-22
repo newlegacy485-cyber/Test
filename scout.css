@@ -737,6 +737,164 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+/* ── Social Platform Toggles ─────────────────────── */
+.platform-toggles {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.ptoggle {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition);
+  opacity: 0.4;
+  filter: grayscale(0.5);
+}
+
+.ptoggle--active {
+  opacity: 1;
+  filter: none;
+  border-color: var(--pc, var(--accent));
+  background: color-mix(in srgb, var(--pc, var(--accent)) 15%, transparent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--pc, var(--accent)) 30%, transparent);
+}
+
+.ptoggle:hover { opacity: 0.85; }
+
+/* ── Social Presence Badges on biz card ─────────── */
+.scout-biz-social {
+  display: flex;
+  gap: 4px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
+.scout-biz-social span {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+/* ── Platform badges on pitch header ─────────────── */
+.sp-badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.sp-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.platform-char-count {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-3);
+  margin-left: 8px;
+}
+
+/* ── Live Scan Feed ───────────────────────────────── */
+.scan-feed-section {
+  background: var(--bg-3);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+}
+
+.scan-feed-wrap {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.scan-feed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.scan-feed-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.scan-feed-sources {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.scan-source {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--c, #888) 30%, transparent);
+  color: var(--c, var(--text-2));
+  background: color-mix(in srgb, var(--c, #888) 8%, transparent);
+}
+
+.scan-feed {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  padding: 14px 20px;
+  max-height: 180px;
+  overflow-y: auto;
+  color: var(--text-2);
+  scroll-behavior: smooth;
+}
+
+.scan-line {
+  padding: 2px 0;
+  border-bottom: 1px solid transparent;
+  animation: feedSlide 0.3s ease forwards;
+}
+
+.scan-line--new {
+  color: var(--text);
+}
+
+.scan-line--sent {
+  color: #22c55e;
+}
+
+.scan-ts {
+  color: var(--text-3);
+  margin-right: 8px;
+  user-select: none;
+}
+
+/* ── Pipeline card platform indicator ────────────── */
+.pipeline-card__platform {
+  font-size: 0.68rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 1100px) {
   .scout-main__grid { grid-template-columns: 1fr; }
