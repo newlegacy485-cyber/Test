@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receptionist Team — Luminary</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="receptionists.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="logo-mark">✦</span>
+        Luminary
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="receptionists.html" class="active">Receptionists</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-toggle__icon">☀</span>
+      </button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <ul>
+        <li><a href="index.html#about" class="mobile-link">About</a></li>
+        <li><a href="index.html#work" class="mobile-link">Work</a></li>
+        <li><a href="index.html#services" class="mobile-link">Services</a></li>
+        <li><a href="receptionists.html" class="mobile-link">Receptionists</a></li>
+        <li><a href="index.html#contact" class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="r-hero">
+    <div class="r-hero__bg">
+      <div class="r-hero__orb r-hero__orb--1"></div>
+      <div class="r-hero__orb r-hero__orb--2"></div>
+    </div>
+    <div class="container">
+      <div class="r-hero__content">
+        <div class="r-hero__badge">
+          <span class="badge-dot"></span>
+          5 Receptionists On Duty — All Channels Open
+        </div>
+        <h1 class="r-hero__title">
+          Your Always-On<br />
+          <span class="gradient-text">Receptionist Team</span>
+        </h1>
+        <p class="r-hero__sub">
+          Meet your dedicated team. They answer every text, handle every call,
+          and proactively reach out to clients — 24 hours a day, 7 days a week.
+        </p>
+        <div class="r-hero__stats">
+          <div class="r-stat">
+            <span class="r-stat__num" id="cntCalls">0</span>
+            <span class="r-stat__label">Calls Answered Today</span>
+          </div>
+          <div class="r-stat__div"></div>
+          <div class="r-stat">
+            <span class="r-stat__num" id="cntTexts">0</span>
+            <span class="r-stat__label">Texts Replied</span>
+          </div>
+          <div class="r-stat__div"></div>
+          <div class="r-stat">
+            <span class="r-stat__num" id="cntOutreach">0</span>
+            <span class="r-stat__label">Clients Contacted</span>
+          </div>
+          <div class="r-stat__div"></div>
+          <div class="r-stat">
+            <span class="r-stat__num">100</span><span class="r-stat__pct">%</span>
+            <span class="r-stat__label">Response Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Roster -->
+  <section class="r-team section" id="team">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Meet the Team</div>
+        <h2 class="section-heading">Five specialists, <em>one mission</em></h2>
+        <p class="section-sub">Each receptionist specializes in a different channel so nothing ever falls through the cracks.</p>
+      </div>
+      <div class="r-team__grid">
+
+        <!-- Aria -->
+        <div class="r-agent-card" data-agent="aria">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background: linear-gradient(135deg,#7c3aed,#a855f7)">
+              <span>AR</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Aria</h3>
+              <span class="r-agent-role">Lead Receptionist</span>
+            </div>
+            <span class="r-channel-badge r-channel-badge--call">📞 Calls</span>
+          </div>
+          <p class="r-agent-bio">Handles all inbound calls with a warm, professional tone. Never lets a call go to voicemail.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="47">0</span><span>Calls today</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="18">0</span><span>s avg wait</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="100">0</span><span>% answered</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>Inbound Calls</span>
+            <span>Call Routing</span>
+            <span>Voicemail Triage</span>
+            <span>Appointment Booking</span>
+          </div>
+          <button class="btn btn--primary r-agent-btn" onclick="openPanel('calls','aria')">View Call Queue →</button>
+        </div>
+
+        <!-- Jordan -->
+        <div class="r-agent-card" data-agent="jordan">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background: linear-gradient(135deg,#0ea5e9,#06b6d4)">
+              <span>JO</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Jordan</h3>
+              <span class="r-agent-role">Text Specialist</span>
+            </div>
+            <span class="r-channel-badge r-channel-badge--sms">💬 SMS</span>
+          </div>
+          <p class="r-agent-bio">Replies to every inbound text within seconds. Handles FAQs, bookings, and escalations seamlessly.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="124">0</span><span>Texts today</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="8">0</span><span>s avg reply</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="100">0</span><span>% replied</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>SMS Replies</span>
+            <span>FAQ Handling</span>
+            <span>Live Chat</span>
+            <span>Escalation</span>
+          </div>
+          <button class="btn btn--primary r-agent-btn" onclick="openPanel('texts','jordan')">View Inbox →</button>
+        </div>
+
+        <!-- Sam -->
+        <div class="r-agent-card" data-agent="sam">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background: linear-gradient(135deg,#f59e0b,#ef4444)">
+              <span>SA</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Sam</h3>
+              <span class="r-agent-role">Outreach Coordinator</span>
+            </div>
+            <span class="r-channel-badge r-channel-badge--outreach">📤 Outreach</span>
+          </div>
+          <p class="r-agent-bio">Proactively contacts clients for follow-ups, reminders, and new opportunities. Keeps your pipeline warm.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="31">0</span><span>Reached today</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="68">0</span><span>% open rate</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="22">0</span><span>Responses</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>Follow-Ups</span>
+            <span>Reminders</span>
+            <span>Campaign Blasts</span>
+            <span>Re-Engagement</span>
+          </div>
+          <button class="btn btn--primary r-agent-btn" onclick="openPanel('outreach','sam')">Compose Outreach →</button>
+        </div>
+
+        <!-- Maya -->
+        <div class="r-agent-card" data-agent="maya">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background: linear-gradient(135deg,#22c55e,#16a34a)">
+              <span>MA</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Maya</h3>
+              <span class="r-agent-role">Appointment Scheduler</span>
+            </div>
+            <span class="r-channel-badge r-channel-badge--appt">📅 Scheduling</span>
+          </div>
+          <p class="r-agent-bio">Books, reschedules, and confirms appointments across all channels. Syncs with your calendar in real time.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="19">0</span><span>Booked today</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="3">0</span><span>Upcoming</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="0">0</span><span>No-shows</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>Calendar Sync</span>
+            <span>Reminders</span>
+            <span>Rescheduling</span>
+            <span>Confirmations</span>
+          </div>
+          <button class="btn btn--primary r-agent-btn" onclick="openPanel('appt','maya')">View Schedule →</button>
+        </div>
+
+        <!-- Alex -->
+        <div class="r-agent-card" data-agent="alex">
+          <div class="r-agent-card__top">
+            <div class="r-agent-avatar" style="background: linear-gradient(135deg,#6366f1,#8b5cf6)">
+              <span>AL</span>
+              <div class="r-agent-status r-agent-status--online"></div>
+            </div>
+            <div class="r-agent-meta">
+              <h3>Alex</h3>
+              <span class="r-agent-role">After-Hours Agent</span>
+            </div>
+            <span class="r-channel-badge r-channel-badge--24">🌙 24/7</span>
+          </div>
+          <p class="r-agent-bio">Covers all channels overnight and on weekends. No client is ever left waiting — even at 3 AM.</p>
+          <div class="r-agent-stats">
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="24">0</span><span>Hours active</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="7">0</span><span>Days/week</span></div>
+            <div class="r-mini-stat"><span class="r-mini-num" data-target="0">0</span><span>Missed msgs</span></div>
+          </div>
+          <div class="r-agent-caps">
+            <span>After-Hours Calls</span>
+            <span>Night Texts</span>
+            <span>Emergency Triage</span>
+            <span>Weekend Coverage</span>
+          </div>
+          <button class="btn btn--primary r-agent-btn" onclick="openPanel('calls','alex')">View Activity →</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Unified Dashboard -->
+  <section class="r-dashboard section" id="dashboard">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Live Command Center</div>
+        <h2 class="section-heading">Manage everything <em>in one place</em></h2>
+        <p class="section-sub">Switch between channels to monitor, reply, and initiate contact with any client.</p>
+      </div>
+
+      <!-- Tab Bar -->
+      <div class="r-tabs" role="tablist">
+        <button class="r-tab r-tab--active" role="tab" data-tab="texts" onclick="switchTab('texts')">
+          <span class="r-tab__icon">💬</span> Text Inbox
+          <span class="r-tab__badge" id="badge-texts">3</span>
+        </button>
+        <button class="r-tab" role="tab" data-tab="calls" onclick="switchTab('calls')">
+          <span class="r-tab__icon">📞</span> Call Queue
+          <span class="r-tab__badge" id="badge-calls">2</span>
+        </button>
+        <button class="r-tab" role="tab" data-tab="outreach" onclick="switchTab('outreach')">
+          <span class="r-tab__icon">📤</span> Outreach
+        </button>
+        <button class="r-tab" role="tab" data-tab="appt" onclick="switchTab('appt')">
+          <span class="r-tab__icon">📅</span> Appointments
+        </button>
+        <button class="r-tab" role="tab" data-tab="activity" onclick="switchTab('activity')">
+          <span class="r-tab__icon">⚡</span> Activity Feed
+        </button>
+      </div>
+
+      <!-- Panels -->
+      <div class="r-panel-wrap">
+
+        <!-- Text Inbox -->
+        <div class="r-panel r-panel--active" id="panel-texts">
+          <div class="r-panel__sidebar">
+            <div class="r-panel__search">
+              <input type="text" placeholder="Search conversations…" id="searchTexts" oninput="filterConvos(this.value)" />
+            </div>
+            <div class="r-convos" id="convos">
+              <!-- populated by JS -->
+            </div>
+          </div>
+          <div class="r-panel__main">
+            <div class="r-chat" id="chatArea">
+              <div class="r-chat__header" id="chatHeader">
+                <div class="r-chat__header-info">
+                  <div class="r-chat__avatar" id="chatAvatar"></div>
+                  <div>
+                    <strong id="chatName">Select a conversation</strong>
+                    <span id="chatSub"></span>
+                  </div>
+                </div>
+                <div class="r-chat__header-actions" id="chatHeaderActions" style="display:none">
+                  <button class="r-icon-btn" title="Call client" onclick="simulateCall()">📞</button>
+                  <button class="r-icon-btn" title="View client profile">👤</button>
+                  <button class="r-icon-btn" title="More options">⋯</button>
+                </div>
+              </div>
+              <div class="r-chat__messages" id="chatMessages">
+                <div class="r-chat__empty">
+                  <span>💬</span>
+                  <p>Select a conversation to start reading and replying</p>
+                </div>
+              </div>
+              <form class="r-chat__compose" id="chatCompose" onsubmit="sendMessage(event)" style="display:none">
+                <div class="r-chat__compose-row">
+                  <input type="text" id="msgInput" placeholder="Type a reply…" autocomplete="off" />
+                  <button type="button" class="r-compose-ai" onclick="aiSuggest()" title="AI suggest reply">✦ Suggest</button>
+                  <button type="submit" class="btn btn--primary r-send-btn">Send</button>
+                </div>
+                <div class="r-chat__compose-hints">
+                  <button type="button" class="r-quick-reply" onclick="quickReply('On my way, give me 5 minutes!')">⚡ On my way</button>
+                  <button type="button" class="r-quick-reply" onclick="quickReply('I\'ll have someone call you right back.')">📞 Call you back</button>
+                  <button type="button" class="r-quick-reply" onclick="quickReply('Thanks! Your appointment is confirmed.')">✓ Confirmed</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call Queue -->
+        <div class="r-panel" id="panel-calls">
+          <div class="r-call-grid">
+            <!-- Active / Live Calls -->
+            <div class="r-call-section">
+              <h4 class="r-call-section__title">
+                <span class="r-live-dot"></span> Live Calls
+              </h4>
+              <div id="liveCalls">
+                <!-- populated by JS -->
+              </div>
+            </div>
+            <!-- Recent Calls -->
+            <div class="r-call-section">
+              <h4 class="r-call-section__title">Recent Calls</h4>
+              <div class="r-call-log" id="callLog">
+                <!-- populated by JS -->
+              </div>
+            </div>
+          </div>
+          <!-- Initiate Call -->
+          <div class="r-call-dial">
+            <h4>Initiate Outbound Call</h4>
+            <div class="r-dial-row">
+              <input type="tel" id="dialNumber" placeholder="+1 (555) 000-0000" />
+              <input type="text" id="dialName" placeholder="Client name (optional)" />
+              <button class="btn btn--primary" onclick="initiateCall()">📞 Call Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outreach Composer -->
+        <div class="r-panel" id="panel-outreach">
+          <div class="r-outreach-wrap">
+            <div class="r-outreach-form">
+              <h4>Compose Outreach Message</h4>
+              <div class="r-form-group">
+                <label>Channel</label>
+                <div class="r-channel-select" id="channelSelect">
+                  <button class="r-ch-btn r-ch-btn--active" data-ch="sms" onclick="selectChannel(this,'sms')">💬 SMS / Text</button>
+                  <button class="r-ch-btn" data-ch="call" onclick="selectChannel(this,'call')">📞 Phone Call</button>
+                  <button class="r-ch-btn" data-ch="email" onclick="selectChannel(this,'email')">✉ Email</button>
+                </div>
+              </div>
+              <div class="r-form-group">
+                <label for="outReach-to">To (clients)</label>
+                <div class="r-recipients" id="recipientsList">
+                  <span class="r-chip">Sarah Lindqvist <button onclick="removeChip(this)">×</button></span>
+                  <span class="r-chip">Marcus Reid <button onclick="removeChip(this)">×</button></span>
+                  <input type="text" id="recipientInput" placeholder="Add client name or number…" onkeydown="addRecipient(event)" />
+                </div>
+              </div>
+              <div class="r-form-group">
+                <label for="outTemplate">Template</label>
+                <select id="outTemplate" onchange="loadTemplate(this.value)">
+                  <option value="">— Start from scratch —</option>
+                  <option value="followup">Follow-Up After Meeting</option>
+                  <option value="reminder">Appointment Reminder</option>
+                  <option value="welcome">New Client Welcome</option>
+                  <option value="checkin">Monthly Check-In</option>
+                  <option value="promo">Special Offer</option>
+                </select>
+              </div>
+              <div class="r-form-group">
+                <label for="outMessage">Message</label>
+                <textarea id="outMessage" rows="6" placeholder="Type your message or select a template above…"></textarea>
+                <div class="r-msg-footer">
+                  <span id="charCount">0 / 160</span>
+                  <button type="button" class="r-compose-ai" onclick="aiOutreach()">✦ AI Write</button>
+                </div>
+              </div>
+              <div class="r-form-group">
+                <label>Schedule</label>
+                <div class="r-schedule-row">
+                  <label class="r-radio"><input type="radio" name="sched" value="now" checked onchange="toggleSched(this)"> Send Now</label>
+                  <label class="r-radio"><input type="radio" name="sched" value="later" onchange="toggleSched(this)"> Schedule for Later</label>
+                  <input type="datetime-local" id="schedTime" style="display:none" />
+                </div>
+              </div>
+              <div class="r-outreach-actions">
+                <button class="btn btn--ghost" onclick="previewMessage()">Preview</button>
+                <button class="btn btn--primary" onclick="sendOutreach()">📤 Send Outreach</button>
+              </div>
+            </div>
+            <div class="r-outreach-sidebar">
+              <h4>Recent Outreach</h4>
+              <div class="r-outreach-history" id="outreachHistory">
+                <!-- populated by JS -->
+              </div>
+              <div class="r-outreach-tip">
+                <span class="r-tip-icon">💡</span>
+                <p>Sam automatically sends follow-up reminders 24 hours after no response.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Appointments -->
+        <div class="r-panel" id="panel-appt">
+          <div class="r-appt-wrap">
+            <div class="r-appt-list">
+              <div class="r-appt-header">
+                <h4>Today's Schedule</h4>
+                <button class="btn btn--ghost r-btn-sm" onclick="openBookingModal()">+ Book New</button>
+              </div>
+              <div id="apptList">
+                <!-- populated by JS -->
+              </div>
+            </div>
+            <div class="r-appt-sidebar">
+              <h4>Quick Book</h4>
+              <form class="r-book-form" onsubmit="bookAppt(event)">
+                <div class="r-form-group">
+                  <label>Client Name</label>
+                  <input type="text" id="bookName" placeholder="Client name" required />
+                </div>
+                <div class="r-form-group">
+                  <label>Phone / SMS</label>
+                  <input type="tel" id="bookPhone" placeholder="+1 (555) 000-0000" />
+                </div>
+                <div class="r-form-group">
+                  <label>Date & Time</label>
+                  <input type="datetime-local" id="bookTime" required />
+                </div>
+                <div class="r-form-group">
+                  <label>Service</label>
+                  <select id="bookService">
+                    <option>UI/UX Design Consultation</option>
+                    <option>Web Development Kickoff</option>
+                    <option>Brand Strategy Session</option>
+                    <option>Project Review</option>
+                    <option>General Enquiry Call</option>
+                  </select>
+                </div>
+                <div class="r-form-group">
+                  <label>Send reminder via</label>
+                  <div class="r-check-row">
+                    <label class="r-checkbox"><input type="checkbox" checked /> SMS</label>
+                    <label class="r-checkbox"><input type="checkbox" checked /> Call</label>
+                    <label class="r-checkbox"><input type="checkbox" /> Email</label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Book & Notify Client</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="r-panel r-panel--feed" id="panel-activity">
+          <div class="r-feed-header">
+            <h4>Live Activity Feed</h4>
+            <div class="r-feed-filters">
+              <button class="r-filter-btn r-filter-btn--active" onclick="filterFeed(this,'all')">All</button>
+              <button class="r-filter-btn" onclick="filterFeed(this,'call')">Calls</button>
+              <button class="r-filter-btn" onclick="filterFeed(this,'sms')">Texts</button>
+              <button class="r-filter-btn" onclick="filterFeed(this,'outreach')">Outreach</button>
+              <button class="r-filter-btn" onclick="filterFeed(this,'appt')">Appointments</button>
+            </div>
+          </div>
+          <div class="r-feed" id="activityFeed">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="r-how section" id="how">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-heading">Every channel, <em>covered</em></h2>
+      </div>
+      <div class="r-how__grid">
+        <div class="r-how-step reveal">
+          <div class="r-how-step__num">01</div>
+          <div class="r-how-step__icon">📥</div>
+          <h3>Inbound Arrives</h3>
+          <p>A call or text comes in from any client. It's instantly routed to the right receptionist based on channel and availability.</p>
+        </div>
+        <div class="r-how-step reveal" data-delay="100">
+          <div class="r-how-step__num">02</div>
+          <div class="r-how-step__icon">🤖</div>
+          <h3>Receptionist Responds</h3>
+          <p>The assigned receptionist answers within seconds — professionally, accurately, and in your brand's voice.</p>
+        </div>
+        <div class="r-how-step reveal" data-delay="200">
+          <div class="r-how-step__num">03</div>
+          <div class="r-how-step__icon">📋</div>
+          <h3>Action Taken</h3>
+          <p>Appointments are booked, questions are answered, issues are escalated — everything logged and tracked.</p>
+        </div>
+        <div class="r-how-step reveal" data-delay="300">
+          <div class="r-how-step__num">04</div>
+          <div class="r-how-step__icon">📤</div>
+          <h3>Proactive Outreach</h3>
+          <p>Sam follows up with leads, sends reminders, and keeps clients engaged — before they even think to reach out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="cta-band__orb cta-band__orb--1"></div>
+    <div class="cta-band__orb cta-band__orb--2"></div>
+    <div class="container">
+      <div class="cta-band__inner">
+        <h2>Ready to deploy your <span class="gradient-text">receptionist team?</span></h2>
+        <p>Get your team answering calls and texts within 24 hours. No hardware, no training, no missed clients.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <a href="index.html#contact" class="btn btn--primary btn--lg">Get Started Today</a>
+          <a href="#dashboard" class="btn btn--ghost btn--lg">Try the Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">
+            <span class="logo-mark">✦</span>
+            Luminary
+          </a>
+          <p>Crafting digital experiences<br />that inspire and convert.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#work">Work</a></li>
+              <li><a href="index.html#services">Services</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Team</h4>
+            <ul>
+              <li><a href="#team">Aria — Calls</a></li>
+              <li><a href="#team">Jordan — Texts</a></li>
+              <li><a href="#team">Sam — Outreach</a></li>
+              <li><a href="#team">Maya — Scheduling</a></li>
+              <li><a href="#team">Alex — 24/7</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Channels</h4>
+            <ul>
+              <li><a href="#dashboard">SMS / Text</a></li>
+              <li><a href="#dashboard">Phone Calls</a></li>
+              <li><a href="#dashboard">Outreach</a></li>
+              <li><a href="#dashboard">Appointments</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Luminary Studio. All rights reserved.</span>
+        <span>Receptionist Team — Always On ✦</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Call Modal -->
+  <div class="r-modal" id="callModal" style="display:none">
+    <div class="r-modal__backdrop" onclick="closeCallModal()"></div>
+    <div class="r-modal__box r-call-modal">
+      <div class="r-call-modal__ring">
+        <div class="r-call-modal__avatar" id="callModalAvatar"></div>
+      </div>
+      <h3 id="callModalName">Incoming Call</h3>
+      <p id="callModalSub">Aria is connecting…</p>
+      <div class="r-call-modal__timer" id="callTimer" style="display:none">00:00</div>
+      <div class="r-call-modal__actions" id="callModalActions">
+        <button class="r-call-btn r-call-btn--end" onclick="endCall()">📵 End</button>
+        <button class="r-call-btn r-call-btn--mute" onclick="toggleMute(this)">🎙 Mute</button>
+        <button class="r-call-btn r-call-btn--hold" onclick="toggleHold(this)">⏸ Hold</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="r-toast" id="toast"></div>
+
+  <script src="receptionists.js"></script>
+  <script>
+    /* Nav theme + hamburger re-use from main script */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      const spans = hamburger.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.cssText = 'transform:translateY(7px) rotate(45deg)';
+        spans[1].style.cssText = 'opacity:0;transform:scaleX(0)';
+        spans[2].style.cssText = 'transform:translateY(-7px) rotate(-45deg)';
+      } else { spans.forEach(s => (s.style.cssText = '')); }
+    });
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.querySelectorAll('span').forEach(s => (s.style.cssText = ''));
+    }));
+
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('.theme-toggle__icon');
+    const applyTheme = (t) => {
+      document.documentElement.setAttribute('data-theme', t);
+      themeIcon.textContent = t === 'light' ? '☽' : '☀';
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark'));
+    themeToggle.addEventListener('click', () => {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    /* Scroll reveal */
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const d = e.target.dataset.delay ? parseInt(e.target.dataset.delay) : 0;
+          setTimeout(() => e.target.classList.add('visible'), d);
+          ro.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  </script>
+</body>
+</html>
