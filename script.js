@@ -33,7 +33,7 @@ const revealObserver = new IntersectionObserver(
 );
 
 document
-  .querySelectorAll('.split, .service-card, .work-card, .drops__panel, .timeline article, .testimonials, .waitlist')
+  .querySelectorAll('.positioning-card, .split, .service-card, .work-card, .transformation, .drops__panel, .timeline article, .testimonials, .faq-grid article, .cinematic-cta, .waitlist')
   .forEach(element => {
     element.classList.add('reveal');
     revealObserver.observe(element);
