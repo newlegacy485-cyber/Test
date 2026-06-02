@@ -115,6 +115,8 @@ const validateField = field => {
   const isEmail = field.type === 'email';
   const isValid = Boolean(value) && (!isEmail || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
   field.classList.toggle('field-error', !isValid);
+  field.setAttribute('aria-invalid', String(!isValid));
+  field.closest('label')?.classList.toggle('has-error', !isValid);
   return isValid;
 };
 

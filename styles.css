@@ -966,6 +966,10 @@ label {
   text-transform: uppercase;
 }
 
+label.has-error {
+  color: #ff9b86;
+}
+
 input,
 select,
 textarea {
@@ -1001,9 +1005,10 @@ textarea:focus {
 }
 
 .field-error {
-  border-color: #ff6b4a;
-  background: rgba(255, 107, 74, 0.08);
-  box-shadow: 0 0 0 4px rgba(255, 107, 74, 0.2);
+  border-color: #ff4f2e;
+  outline: 2px solid rgba(255, 79, 46, 0.78);
+  background: rgba(255, 79, 46, 0.12);
+  box-shadow: 0 0 0 6px rgba(255, 79, 46, 0.18), inset 0 0 0 1px rgba(255,255,255,0.12);
 }
 
 .form-note {
@@ -1017,15 +1022,15 @@ textarea:focus {
 }
 
 .form-note.is-error {
-  border-color: rgba(255, 107, 74, 0.52);
-  background: rgba(255, 107, 74, 0.12);
-  color: #ffb49f;
+  border-color: rgba(255, 79, 46, 0.72);
+  background: rgba(255, 79, 46, 0.18);
+  color: #ffb7a6;
 }
 
 .form-note.is-success {
-  border-color: rgba(184, 226, 90, 0.5);
-  background: rgba(184, 226, 90, 0.12);
-  color: #d9ff85;
+  border-color: rgba(47, 255, 99, 0.68);
+  background: rgba(47, 255, 99, 0.16);
+  color: #88ff9b;
 }
 
 .footer {
