@@ -967,7 +967,8 @@ label {
 }
 
 label.has-error {
-  color: #ff9b86;
+  color: #ff5f43 !important;
+  text-shadow: 0 0 18px rgba(255, 79, 46, 0.32);
 }
 
 input,
