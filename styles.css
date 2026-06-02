@@ -1002,17 +1002,30 @@ textarea:focus {
 
 .field-error {
   border-color: #ff6b4a;
-  box-shadow: 0 0 0 4px rgba(255, 107, 74, 0.14);
+  background: rgba(255, 107, 74, 0.08);
+  box-shadow: 0 0 0 4px rgba(255, 107, 74, 0.2);
 }
 
 .form-note {
   margin: 0;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  border-radius: 16px;
   color: var(--muted-dark);
   text-align: center;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.form-note.is-error {
+  border-color: rgba(255, 107, 74, 0.52);
+  background: rgba(255, 107, 74, 0.12);
+  color: #ffb49f;
 }
 
 .form-note.is-success {
-  color: var(--green);
+  border-color: rgba(184, 226, 90, 0.5);
+  background: rgba(184, 226, 90, 0.12);
+  color: #d9ff85;
 }
 
 .footer {

@@ -132,6 +132,7 @@ bookingForm.addEventListener('submit', event => {
   if (!isValid) {
     formNote.textContent = 'Please complete every field with a valid email so Parker has enough context.';
     formNote.classList.remove('is-success');
+    formNote.classList.add('is-error');
     return;
   }
 
@@ -145,6 +146,7 @@ bookingForm.addEventListener('submit', event => {
     submitButton.disabled = false;
     buttonText.textContent = 'Submit waitlist request';
     formNote.textContent = 'You are on the list. Parker can now review the project lane, story, and budget context.';
+    formNote.classList.remove('is-error');
     formNote.classList.add('is-success');
   }, 800);
 });
