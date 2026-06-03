@@ -3,536 +3,478 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luminary — Digital Experiences</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta
+    name="description"
+    content="Parksart Customs is a Greenville, NC custom sneaker studio creating 100% freehand wearable art, commission waitlists, limited drops, and private event experiences."
+  />
+  <title>Parksart Customs | Freehand Custom Sneakers in North Carolina</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- Navigation -->
   <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="#" class="nav__logo">
-        <span class="logo-mark">✦</span>
-        Luminary
-      </a>
-      <ul class="nav__links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="theme-toggle__icon">☀</span>
-      </button>
-      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+    <a class="brand" href="#home" aria-label="Parksart Customs home">
+      <span class="brand__mark">PC</span>
+      <span>Parksart Customs</span>
+    </a>
+    <div class="nav__links" aria-label="Primary navigation">
+      <a href="#story">Story</a>
+      <a href="#commissions">Commissions</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
     </div>
-    <div class="nav__mobile" id="mobileMenu">
-      <ul>
-        <li><a href="#about" class="mobile-link">About</a></li>
-        <li><a href="#work" class="mobile-link">Work</a></li>
-        <li><a href="#services" class="mobile-link">Services</a></li>
-        <li><a href="#contact" class="mobile-link">Contact</a></li>
-      </ul>
-    </div>
+    <a class="nav__cta" href="#waitlist">Join the waitlist</a>
+    <button class="nav__toggle" id="navToggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+  <a class="floating-cta" href="#waitlist" aria-label="Open the Parksart Customs waitlist">Book the story</a>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="hero__bg">
-      <div class="hero__orb hero__orb--1"></div>
-      <div class="hero__orb hero__orb--2"></div>
-      <div class="hero__orb hero__orb--3"></div>
-      <div class="hero__grid"></div>
-    </div>
-    <div class="hero__content">
-      <div class="hero__badge animate-fade-up">
-        <span class="badge-dot"></span>
-        Now taking new projects for 2026
-      </div>
-      <h1 class="hero__headline animate-fade-up">
-        We craft digital<br />
-        <span class="gradient-text">experiences</span><br />
-        that inspire.
-      </h1>
-      <p class="hero__sub animate-fade-up">
-        A creative studio building beautiful, fast, and purposeful websites
-        and applications for ambitious brands worldwide.
-      </p>
-      <div class="hero__cta animate-fade-up">
-        <a href="#work" class="btn btn--primary">View Our Work</a>
-        <a href="#contact" class="btn btn--ghost">Get in Touch</a>
-      </div>
-      <div class="hero__stats animate-fade-up">
-        <div class="stat">
-          <span class="stat__number" data-target="120">0</span><span>+</span>
-          <span class="stat__label">Projects Delivered</span>
+  <main>
+    <section class="hero section-shell" id="home">
+      <div class="hero__texture" aria-hidden="true"></div>
+      <div class="hero__copy">
+        <p class="eyebrow">Greenville, NC custom sneaker atelier</p>
+        <h1>Freehand sneakers for people who refuse to wear the same story twice.</h1>
+        <p class="hero__lede">
+          Parker Joseph Ellis turns blank pairs into one-of-one art pieces shaped by hip-hop culture,
+          Carolina roots, and a process 92K+ followers watch because the craft is the show.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#waitlist">Request a commission</a>
+          <a class="button button--secondary" href="https://www.facebook.com/parksartcustoms" target="_blank" rel="noreferrer">View Facebook work</a>
         </div>
-        <div class="stat__divider"></div>
-        <div class="stat">
-          <span class="stat__number" data-target="98">0</span><span>%</span>
-          <span class="stat__label">Client Satisfaction</span>
-        </div>
-        <div class="stat__divider"></div>
-        <div class="stat">
-          <span class="stat__number" data-target="8">0</span><span>+</span>
-          <span class="stat__label">Years of Experience</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero__scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- Marquee -->
-  <div class="marquee-wrap">
-    <div class="marquee">
-      <span>Design</span><span class="dot">✦</span>
-      <span>Development</span><span class="dot">✦</span>
-      <span>Branding</span><span class="dot">✦</span>
-      <span>Motion</span><span class="dot">✦</span>
-      <span>Strategy</span><span class="dot">✦</span>
-      <span>Design</span><span class="dot">✦</span>
-      <span>Development</span><span class="dot">✦</span>
-      <span>Branding</span><span class="dot">✦</span>
-      <span>Motion</span><span class="dot">✦</span>
-      <span>Strategy</span><span class="dot">✦</span>
-      <span>Design</span><span class="dot">✦</span>
-      <span>Development</span><span class="dot">✦</span>
-      <span>Branding</span><span class="dot">✦</span>
-      <span>Motion</span><span class="dot">✦</span>
-      <span>Strategy</span><span class="dot">✦</span>
-    </div>
-  </div>
-
-  <!-- About -->
-  <section class="about section" id="about">
-    <div class="container">
-      <div class="about__inner">
-        <div class="about__visual">
-          <div class="about__image-wrap">
-            <div class="about__image-blob"></div>
-            <div class="about__image-card about__image-card--1">
-              <div class="mini-card">
-                <span class="mini-card__icon">🎨</span>
-                <span>Award-winning design</span>
-              </div>
-            </div>
-            <div class="about__image-card about__image-card--2">
-              <div class="mini-card">
-                <span class="mini-card__icon">⚡</span>
-                <span>Blazing fast delivery</span>
-              </div>
-            </div>
+        <div class="hero__stats" aria-label="Brand proof">
+          <div>
+            <strong><span class="counter" data-target="92">0</span>K+</strong>
+            <span>organic Facebook followers</span>
+          </div>
+          <div>
+            <strong>100%</strong>
+            <span>freehand custom work</span>
+          </div>
+          <div>
+            <strong><span class="counter" data-target="6">0</span>.2B</strong>
+            <span>2024 custom sneaker market</span>
           </div>
         </div>
-        <div class="about__text">
-          <div class="section-label">Who We Are</div>
-          <h2 class="section-heading">
-            A team obsessed with
-            <em>beautiful craft</em>
-          </h2>
-          <p>
-            We are a small, mighty studio of designers, developers, and
-            strategists who believe that great digital work is born from deep
-            curiosity and meticulous attention to detail.
-          </p>
-          <p>
-            Founded in 2018, we've partnered with startups, Fortune 500s, and
-            everything in between — helping each one tell their story in a way
-            that resonates and converts.
-          </p>
-          <ul class="about__values">
-            <li>
-              <span class="check">✓</span>
-              Design-first thinking on every project
-            </li>
-            <li>
-              <span class="check">✓</span>
-              Transparent communication, always
-            </li>
-            <li>
-              <span class="check">✓</span>
-              Performance and accessibility as standard
-            </li>
-          </ul>
-          <a href="#contact" class="btn btn--primary">Work With Us</a>
+      </div>
+      <div class="hero__visual" aria-label="Custom sneaker concept art">
+        <div class="shoe-stage">
+          <div class="paint-orbit paint-orbit--one"></div>
+          <div class="paint-orbit paint-orbit--two"></div>
+          <div class="sneaker-card sneaker-card--hero">
+            <div class="sneaker">
+              <div class="sneaker__collar"></div>
+              <div class="sneaker__body"></div>
+              <div class="sneaker__toe"></div>
+              <div class="sneaker__sole"></div>
+              <div class="sneaker__lace sneaker__lace--one"></div>
+              <div class="sneaker__lace sneaker__lace--two"></div>
+              <div class="sneaker__swoop"></div>
+            </div>
+          </div>
+          <div class="floating-note floating-note--top">
+            <span>Next commission window</span>
+            <strong>Limited slots</strong>
+          </div>
+          <div class="floating-note floating-note--bottom">
+            <span>Buyer lane</span>
+            <strong>DMs to waitlist</strong>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services -->
-  <section class="services section" id="services">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">What We Do</div>
-        <h2 class="section-heading">Services built for <em>impact</em></h2>
-        <p class="section-sub">
-          From brand identity to full-stack development, we cover every layer
-          of the digital stack.
+    <section class="marquee" aria-label="Parksart custom services">
+      <div class="marquee__track">
+        <span>one-of-one customs</span>
+        <span>freehand artwork</span>
+        <span>limited drops</span>
+        <span>event activations</span>
+        <span>private workshops</span>
+        <span>owned waitlist</span>
+        <span>one-of-one customs</span>
+        <span>freehand artwork</span>
+        <span>limited drops</span>
+        <span>event activations</span>
+        <span>private workshops</span>
+        <span>owned waitlist</span>
+      </div>
+    </section>
+
+    <section class="section-shell positioning" id="story">
+      <div class="section-header section-header--inline">
+        <div>
+          <p class="eyebrow">Brand positioning</p>
+          <h2>Wearable art with a creator’s signature, not a catalog option.</h2>
+        </div>
+        <p>
+          Parksart Customs positions each pair as a premium artifact: freehand, emotionally specific,
+          and built around the buyer’s story with Parker’s taste as the filter.
         </p>
       </div>
-      <div class="services__grid">
-        <div class="service-card" data-delay="0">
-          <div class="service-card__icon">✦</div>
-          <h3>UI/UX Design</h3>
+      <div class="positioning-grid">
+        <article class="positioning-card positioning-card--wide">
+          <span>Core message</span>
+          <h3>Your shoes should carry a memory, a culture, and a moment nobody else can repeat.</h3>
           <p>
-            Intuitive interfaces rooted in user research. We design with
-            empathy and precision to create experiences people love.
+            The emotional angle is transformation: from blank mass-produced sneakers to a personal icon
+            people ask about the second they see it.
           </p>
-          <span class="service-card__arrow">→</span>
-        </div>
-        <div class="service-card" data-delay="100">
-          <div class="service-card__icon">⚡</div>
-          <h3>Web Development</h3>
-          <p>
-            Pixel-perfect, performant websites built with modern frameworks.
-            Clean code, fast load times, SEO-ready out of the box.
-          </p>
-          <span class="service-card__arrow">→</span>
-        </div>
-        <div class="service-card" data-delay="200">
-          <div class="service-card__icon">◉</div>
-          <h3>Brand Identity</h3>
-          <p>
-            Logos, color systems, typography, and guidelines that give your
-            brand a cohesive, memorable visual language.
-          </p>
-          <span class="service-card__arrow">→</span>
-        </div>
-        <div class="service-card" data-delay="300">
-          <div class="service-card__icon">▶</div>
-          <h3>Motion & Animation</h3>
-          <p>
-            Scroll-triggered animations, micro-interactions, and cinematic
-            motion design that brings interfaces to life.
-          </p>
-          <span class="service-card__arrow">→</span>
-        </div>
-        <div class="service-card" data-delay="400">
-          <div class="service-card__icon">◈</div>
-          <h3>Product Strategy</h3>
-          <p>
-            Workshop facilitation, roadmapping, and product thinking to
-            align your vision with technical execution.
-          </p>
-          <span class="service-card__arrow">→</span>
-        </div>
-        <div class="service-card" data-delay="500">
-          <div class="service-card__icon">❖</div>
-          <h3>E-Commerce</h3>
-          <p>
-            High-converting online stores with seamless checkout flows,
-            optimized for revenue and long-term growth.
-          </p>
-          <span class="service-card__arrow">→</span>
+        </article>
+        <article class="positioning-card">
+          <span>UVP</span>
+          <h3>100% freehand customs</h3>
+          <p>No template marketplace. No clip-art finish. Parker’s eye, brushwork, and storytelling lead the piece.</p>
+        </article>
+        <article class="positioning-card">
+          <span>Voice</span>
+          <h3>Confident, artistic, Carolina-rooted</h3>
+          <p>Premium without sounding distant; culture-literate without trying too hard.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell split" id="strategy">
+      <div>
+        <p class="eyebrow">The opportunity</p>
+        <h2>Audience is not the problem. Infrastructure is.</h2>
+      </div>
+      <div class="split__content">
+        <p>
+          Parksart Customs already has the hardest part: attention, trust, and a recognizable creator voice.
+          The website turns Facebook discovery into a controlled buyer journey with pricing context,
+          qualification, email capture, and SEO for people searching for North Carolina sneaker artists.
+        </p>
+        <div class="insight-grid">
+          <article>
+            <span>01</span>
+            <h3>Capture owned demand</h3>
+            <p>Every commission CTA routes to the waitlist so Parker is no longer dependent on platform DMs.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Protect the premium</h3>
+            <p>Package tiers and application language frame custom sneakers as art, not commodity add-ons.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Open new revenue</h3>
+            <p>Drops, B2B activations, and workshops become visible paths instead of hidden possibilities.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Work -->
-  <section class="work section" id="work">
-    <div class="container">
+    <section class="section-shell services" id="commissions">
       <div class="section-header">
-        <div class="section-label">Selected Work</div>
-        <h2 class="section-heading">Projects we're <em>proud of</em></h2>
+        <p class="eyebrow">Commission paths</p>
+        <h2>Pick the lane. Parker brings the eye.</h2>
+        <p>Simple offers reduce DM friction while still letting each pair stay deeply personal.</p>
       </div>
-      <div class="work__grid">
-        <article class="project-card project-card--large">
-          <div class="project-card__media" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-            <div class="project-card__overlay">
-              <div class="project-mockup project-mockup--browser">
-                <div class="mockup-bar"><span></span><span></span><span></span></div>
-                <div class="mockup-body mockup-body--1"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-card__info">
-            <div class="project-tags">
-              <span>Brand Identity</span>
-              <span>Web Design</span>
-              <span>Development</span>
-            </div>
-            <h3>Aether Finance</h3>
-            <p>A complete digital rebrand and web platform for a next-gen fintech startup.</p>
-            <a href="#" class="project-link">View Case Study →</a>
-          </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <span class="service-card__tag">Personal</span>
+          <h3>Signature Customs</h3>
+          <p>One-of-one sneaker art for collectors, athletes, artists, and gift buyers who want a wearable centerpiece.</p>
+          <strong class="service-card__price">Best for personal commissions</strong>
+          <ul>
+            <li>Concept direction</li>
+            <li>Freehand artwork</li>
+            <li>Care guidance</li>
+          </ul>
+          <a href="#waitlist">Request this lane</a>
         </article>
-
-        <article class="project-card">
-          <div class="project-card__media" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-            <div class="project-card__overlay">
-              <div class="project-mockup project-mockup--mobile">
-                <div class="mockup-notch"></div>
-                <div class="mockup-screen mockup-screen--2"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-card__info">
-            <div class="project-tags">
-              <span>Mobile App</span>
-              <span>UI/UX</span>
-            </div>
-            <h3>Bloom Health</h3>
-            <p>Wellness app design for 500k+ users.</p>
-            <a href="#" class="project-link">View Case Study →</a>
-          </div>
+        <article class="service-card service-card--featured">
+          <span class="service-card__tag">Highest leverage</span>
+          <h3>Collector Waitlist</h3>
+          <p>Priority consideration for upcoming commission windows, limited pairs, and early drop access.</p>
+          <strong class="service-card__price">Best for demand capture</strong>
+          <ul>
+            <li>Email capture</li>
+            <li>Slot qualification</li>
+            <li>Launch announcements</li>
+          </ul>
+          <a href="#waitlist">Join the waitlist</a>
         </article>
-
-        <article class="project-card">
-          <div class="project-card__media" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-            <div class="project-card__overlay">
-              <div class="project-mockup project-mockup--tablet">
-                <div class="mockup-screen mockup-screen--3"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-card__info">
-            <div class="project-tags">
-              <span>E-Commerce</span>
-              <span>Shopify</span>
-            </div>
-            <h3>Nordvik Studio</h3>
-            <p>Premium Scandinavian furniture store.</p>
-            <a href="#" class="project-link">View Case Study →</a>
-          </div>
-        </article>
-
-        <article class="project-card project-card--large project-card--right">
-          <div class="project-card__media" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-            <div class="project-card__overlay">
-              <div class="project-mockup project-mockup--browser">
-                <div class="mockup-bar"><span></span><span></span><span></span></div>
-                <div class="mockup-body mockup-body--4"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-card__info">
-            <div class="project-tags">
-              <span>SaaS</span>
-              <span>Dashboard</span>
-              <span>Motion</span>
-            </div>
-            <h3>Orbit Analytics</h3>
-            <p>A data analytics SaaS platform with rich data visualizations and an intuitive admin dashboard.</p>
-            <a href="#" class="project-link">View Case Study →</a>
-          </div>
+        <article class="service-card">
+          <span class="service-card__tag">Commercial</span>
+          <h3>Events & B2B</h3>
+          <p>Live customization, branded pairs, and culture-first activations for teams, boutiques, festivals, and agencies.</p>
+          <strong class="service-card__price">Best for brands and events</strong>
+          <ul>
+            <li>Activation concepts</li>
+            <li>Brand storytelling</li>
+            <li>On-site or campaign use</li>
+          </ul>
+          <a href="#waitlist">Plan an activation</a>
         </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Testimonials -->
-  <section class="testimonials section" id="testimonials">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Kind Words</div>
-        <h2 class="section-heading">What clients <em>say</em></h2>
+    <section class="section-shell gallery" id="work">
+      <div class="section-header section-header--inline">
+        <div>
+          <p class="eyebrow">Portfolio system</p>
+          <h2>Built to make the creative process sell.</h2>
+        </div>
+        <p>
+          Instead of a flat gallery, each case-study card spotlights the reason people already follow:
+          reveal, transformation, and Parker’s freehand decisions.
+        </p>
       </div>
-      <div class="testimonials__track" id="testimonialTrack">
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">★★★★★</div>
-          <blockquote>
-            "Luminary didn't just build us a website — they transformed how we
-            present ourselves to the world. The results exceeded every expectation."
-          </blockquote>
-          <div class="testimonial-card__author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">SL</div>
-            <div>
-              <strong>Sarah Lindqvist</strong>
-              <span>CEO, Aether Finance</span>
-            </div>
+      <div class="work-grid">
+        <article class="work-card work-card--large">
+          <div class="work-card__art gradient-fire">
+            <div class="mini-sneaker"></div>
           </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">★★★★★</div>
-          <blockquote>
-            "The attention to detail and the level of craft that went into our
-            app was incredible. Our user engagement jumped 40% after launch."
-          </blockquote>
-          <div class="testimonial-card__author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">MR</div>
-            <div>
-              <strong>Marcus Reid</strong>
-              <span>CPO, Bloom Health</span>
-            </div>
+          <div class="work-card__body">
+            <span>Story-led commission</span>
+            <h3>From blank pair to signature piece</h3>
+            <p>A premium case study template for showing inspiration, sketch, paint passes, reveal, and final fit photos.</p>
           </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">★★★★★</div>
-          <blockquote>
-            "Working with Luminary felt effortless. They understood our vision
-            immediately and delivered something even better than we imagined."
-          </blockquote>
-          <div class="testimonial-card__author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">AN</div>
-            <div>
-              <strong>Anna Nakamura</strong>
-              <span>Founder, Nordvik Studio</span>
-            </div>
+        </article>
+        <article class="work-card">
+          <div class="work-card__art gradient-royal">
+            <div class="mini-sneaker mini-sneaker--blue"></div>
           </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">★★★★★</div>
-          <blockquote>
-            "From strategy to final pixel, the team was exceptional. Our
-            platform conversion rate doubled within three months of launch."
-          </blockquote>
-          <div class="testimonial-card__author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">JT</div>
-            <div>
-              <strong>James Torres</strong>
-              <span>CTO, Orbit Analytics</span>
-            </div>
+          <div class="work-card__body">
+            <span>Hip-hop influence</span>
+            <h3>Culture-forward artwork</h3>
           </div>
-        </div>
+        </article>
+        <article class="work-card">
+          <div class="work-card__art gradient-neon">
+            <div class="mini-sneaker mini-sneaker--green"></div>
+          </div>
+          <div class="work-card__body">
+            <span>Collector drop</span>
+            <h3>Limited release storytelling</h3>
+          </div>
+        </article>
       </div>
-      <div class="testimonials__controls">
-        <button class="t-btn" id="tPrev" aria-label="Previous">←</button>
-        <div class="t-dots" id="tDots"></div>
-        <button class="t-btn" id="tNext" aria-label="Next">→</button>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Band -->
-  <section class="cta-band">
-    <div class="cta-band__orb cta-band__orb--1"></div>
-    <div class="cta-band__orb cta-band__orb--2"></div>
-    <div class="container">
-      <div class="cta-band__inner">
-        <h2>Ready to build something <span class="gradient-text">remarkable?</span></h2>
-        <p>Let's turn your idea into a digital experience your audience won't forget.</p>
-        <a href="#contact" class="btn btn--primary btn--lg">Start a Project</a>
+    <section class="section-shell transformation" id="transformation">
+      <div class="transformation__copy">
+        <p class="eyebrow">Before to after</p>
+        <h2>The customer transformation is the product story.</h2>
+        <p>
+          The website makes the hidden journey visible: hesitation becomes confidence, a blank pair becomes
+          a conversation piece, and a Facebook follower becomes an owned-audience collector.
+        </p>
       </div>
-    </div>
-  </section>
+      <div class="before-after">
+        <article>
+          <span>Before</span>
+          <h3>Mass-produced pair. Scattered DMs. No clear next step.</h3>
+          <p>The buyer likes the work but has to guess pricing, timing, fit, and whether their idea belongs.</p>
+        </article>
+        <div class="transformation-line" aria-hidden="true"></div>
+        <article>
+          <span>After</span>
+          <h3>One-of-one artwork. Qualified request. A story ready to reveal.</h3>
+          <p>The buyer understands the lanes, submits context, joins the list, and sees the commission as premium.</p>
+        </article>
+      </div>
+    </section>
 
-  <!-- Contact -->
-  <section class="contact section" id="contact">
-    <div class="container">
-      <div class="contact__inner">
-        <div class="contact__info">
-          <div class="section-label">Get In Touch</div>
-          <h2 class="section-heading">Let's talk about <em>your project</em></h2>
+    <section class="section-shell drops" id="drops">
+      <div class="drops__panel">
+        <div>
+          <p class="eyebrow">Future revenue engine</p>
+          <h2>Limited drops give the audience a reason to act now.</h2>
           <p>
-            Have a project in mind? Fill out the form and we'll get back to
-            you within one business day.
+            Commission work stays exclusive, while timed drops convert passive followers into buyers and email subscribers
+            with clear scarcity and release storytelling.
           </p>
-          <div class="contact__details">
-            <div class="contact__detail">
-              <span class="contact__detail-icon">✉</span>
-              <span>hello@luminary.studio</span>
-            </div>
-            <div class="contact__detail">
-              <span class="contact__detail-icon">◎</span>
-              <span>San Francisco · New York · London</span>
-            </div>
-            <div class="contact__detail">
-              <span class="contact__detail-icon">◷</span>
-              <span>Mon–Fri, 9am–6pm (PST)</span>
-            </div>
-          </div>
-          <div class="contact__social">
-            <a href="#" class="social-link">Twitter</a>
-            <a href="#" class="social-link">LinkedIn</a>
-            <a href="#" class="social-link">Dribbble</a>
-            <a href="#" class="social-link">GitHub</a>
-          </div>
         </div>
-        <form class="contact__form" id="contactForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Alex Johnson" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="alex@company.com" required />
-            </div>
+        <div class="drop-card">
+          <span class="drop-card__label">Next concept drop</span>
+          <h3>Carolina Afterdark</h3>
+          <p>Hand-painted night-game palette, reflective accents, and individually numbered packaging.</p>
+          <div class="drop-card__meta">
+            <span>24-hour list access</span>
+            <span>Collectors first</span>
           </div>
-          <div class="form-group">
-            <label for="subject">What are you looking for?</label>
-            <select id="subject" name="subject">
-              <option value="" disabled selected>Select a service…</option>
-              <option>UI/UX Design</option>
-              <option>Web Development</option>
-              <option>Brand Identity</option>
-              <option>Motion & Animation</option>
-              <option>Product Strategy</option>
-              <option>E-Commerce</option>
-              <option>Something else</option>
+          <a class="button button--primary" href="#waitlist">Get early access</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell process" id="process">
+      <div class="section-header">
+        <p class="eyebrow">How it works</p>
+        <h2>A clear path from idea to unboxing.</h2>
+      </div>
+      <div class="timeline">
+        <article>
+          <span>01</span>
+          <h3>Apply</h3>
+          <p>Share the story, shoe size, budget range, deadline, and whether you need sourcing.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Concept</h3>
+          <p>Parker translates the idea into a direction that fits the shoe, culture, and client.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Paint</h3>
+          <p>The freehand process becomes content, proof, and anticipation before the final reveal.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Deliver</h3>
+          <p>The finished pair ships with care notes and a story buyers can share immediately.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell testimonials">
+      <div class="section-header">
+        <p class="eyebrow">Why buyers trust it</p>
+        <h2>The competitive moat is personal.</h2>
+      </div>
+      <div class="quote-slider" id="quoteSlider" aria-live="polite">
+        <article class="quote-card is-active">
+          <blockquote>“Clients are not just buying paint on leather. They are buying Parker’s eye, taste, and process.”</blockquote>
+          <span>Brand positioning</span>
+        </article>
+        <article class="quote-card">
+          <blockquote>“A booking system makes demand visible, creates urgency, and lets the best-fit projects rise to the top.”</blockquote>
+          <span>Conversion strategy</span>
+        </article>
+        <article class="quote-card">
+          <blockquote>“SEO around NC custom sneakers is a quiet lane where Parksart can own intent, not just attention.”</blockquote>
+          <span>Growth strategy</span>
+        </article>
+      </div>
+      <div class="quote-controls" aria-label="Quote controls">
+        <button type="button" id="quotePrev" aria-label="Previous quote">Previous</button>
+        <button type="button" id="quoteNext" aria-label="Next quote">Next</button>
+      </div>
+    </section>
+
+    <section class="section-shell faq" id="faq">
+      <div class="section-header section-header--inline">
+        <div>
+          <p class="eyebrow">Trust builders</p>
+          <h2>Questions buyers need answered before they commit.</h2>
+        </div>
+        <p>
+          Strategic FAQs reduce DM back-and-forth while keeping the experience personal, selective, and premium.
+        </p>
+      </div>
+      <div class="faq-grid">
+        <article>
+          <h3>Do I need to provide the shoes?</h3>
+          <p>You can provide a new pair or request sourcing guidance. The waitlist form captures size, model, and deadline context.</p>
+        </article>
+        <article>
+          <h3>How custom can the artwork get?</h3>
+          <p>Every pair is freehand and story-led. Parker interprets the idea so the final result feels intentional, not overstuffed.</p>
+        </article>
+        <article>
+          <h3>What affects investment?</h3>
+          <p>Complexity, shoe model, deadline, sourcing, and commercial usage all matter. The form qualifies the right lane first.</p>
+        </article>
+        <article>
+          <h3>Can brands book activations?</h3>
+          <p>Yes. Events, live customization, branded pairs, and culture-first launches are routed through the B2B lane.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell cinematic-cta" aria-label="Final call to action">
+      <div class="cinematic-cta__inner">
+        <p class="eyebrow">Final frame</p>
+        <h2>Bring Parker the story. Leave with the pair nobody can copy.</h2>
+        <p>
+          Apply for the next commission window, get early access to drops, or start a culture-first event conversation.
+        </p>
+        <a class="button button--primary" href="#waitlist">Start the request</a>
+      </div>
+    </section>
+
+    <section class="section-shell waitlist" id="waitlist">
+      <div class="waitlist__copy">
+        <p class="eyebrow">Commission waitlist</p>
+        <h2>Turn the DM into a real buyer profile.</h2>
+        <p>
+          This form qualifies demand, captures email, and gives Parker the project context needed to choose the right commissions.
+        </p>
+        <div class="contact-strip">
+          <a href="https://www.facebook.com/parksartcustoms" target="_blank" rel="noreferrer">Facebook</a>
+          <span>Greenville, North Carolina</span>
+          <span>Solo artist studio</span>
+        </div>
+      </div>
+      <form class="booking-form" id="bookingForm" novalidate>
+        <div class="form-grid">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+        </div>
+        <div class="form-grid">
+          <label>
+            Project lane
+            <select name="lane" required>
+              <option value="">Choose a lane</option>
+              <option>Custom commission</option>
+              <option>Limited drop access</option>
+              <option>Event or B2B activation</option>
+              <option>Workshop inquiry</option>
             </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Tell us about your project</label>
-            <textarea id="message" name="message" rows="5" placeholder="Describe your project, goals, timeline, and budget…" required></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full">
-            <span class="btn-text">Send Message</span>
-            <span class="btn-icon">→</span>
-          </button>
-          <div class="form-success" id="formSuccess">
-            <span>✓</span> Message sent! We'll be in touch soon.
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
+          </label>
+          <label>
+            Budget range
+            <select name="budget" required>
+              <option value="">Choose a range</option>
+              <option>$350-$750</option>
+              <option>$750-$1,500</option>
+              <option>$1,500+</option>
+              <option>Commercial scope</option>
+            </select>
+          </label>
+        </div>
+        <label>
+          Tell Parker the story
+          <textarea name="story" rows="5" placeholder="Theme, shoe model, deadline, inspiration, and anything personal about the piece." required></textarea>
+        </label>
+        <button class="button button--primary button--full" type="submit">
+          <span class="button__text">Submit waitlist request</span>
+        </button>
+        <p class="form-note" id="formNote" role="status">No spam. Just commission windows, drops, and direct project follow-up.</p>
+      </form>
+    </section>
+  </main>
 
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <a href="#" class="nav__logo">
-            <span class="logo-mark">✦</span>
-            Luminary
-          </a>
-          <p>Crafting digital experiences<br />that inspire and convert.</p>
-        </div>
-        <div class="footer__links">
-          <div class="footer__col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#about">About</a></li>
-              <li><a href="#work">Work</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer__col">
-            <h4>Services</h4>
-            <ul>
-              <li><a href="#">UI/UX Design</a></li>
-              <li><a href="#">Development</a></li>
-              <li><a href="#">Branding</a></li>
-              <li><a href="#">Motion</a></li>
-            </ul>
-          </div>
-          <div class="footer__col">
-            <h4>Connect</h4>
-            <ul>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">LinkedIn</a></li>
-              <li><a href="#">Dribbble</a></li>
-              <li><a href="#">GitHub</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>© 2026 Luminary Studio. All rights reserved.</span>
-        <span>Made with ✦ and care.</span>
-      </div>
+    <div>
+      <a class="brand" href="#home">
+        <span class="brand__mark">PC</span>
+        <span>Parksart Customs</span>
+      </a>
+      <p>Freehand custom sneakers, culture-led storytelling, and owned-audience commerce from Greenville, NC.</p>
+    </div>
+    <div class="footer__links">
+      <a href="#commissions">Commissions</a>
+      <a href="#work">Work</a>
+      <a href="#faq">FAQ</a>
+      <a href="#waitlist">Waitlist</a>
+      <a href="https://www.facebook.com/parksartcustoms" target="_blank" rel="noreferrer">Facebook</a>
     </div>
   </footer>
 
